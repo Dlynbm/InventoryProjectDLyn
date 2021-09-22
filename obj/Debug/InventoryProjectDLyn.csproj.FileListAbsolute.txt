@@ -1,0 +1,12 @@
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\bin\Debug\InventoryProjectDLyn.exe.config
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\bin\Debug\InventoryProjectDLyn.exe
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\bin\Debug\InventoryProjectDLyn.pdb
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.csproj.AssemblyReference.cache
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.Form1.resources
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.Properties.Resources.resources
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.csproj.GenerateResource.cache
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.csproj.CoreCompileInputs.cache
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.exe
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.pdb
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.AddPartForm.resources
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.ModifyPartForm.resources
