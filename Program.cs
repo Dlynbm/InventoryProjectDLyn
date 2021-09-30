@@ -18,10 +18,10 @@ namespace InventoryProjectDLyn
             Application.SetCompatibleTextRenderingDefault(false);
             
             //initialize test data
-            Inventory.PartStockPile.Add(new InHouse(1, "Top", 101, 12.99m, 23, 1, 100));
+            Inventory.PartStockPile.Add(new InHouse(1, "Top", 101, 12.99m, 150, 1, 100));
             Inventory.PartStockPile.Add(new InHouse(2, "Bottom", 102 , 15.99m, 130, 5, 100));
-            Inventory.PartStockPile.Add(new Outsourced(3, "Side", 103, 9.99m, 1, 100, "DM Designs"));
-            Inventory.PartStockPile.Add(new Outsourced(4, "Middle", 104, 5.99m, 1, 100, "Shuman"));
+            Inventory.PartStockPile.Add(new Outsourced(3, "Side", 10, 9.99m, 100, 10, "DM Designs"));
+            Inventory.PartStockPile.Add(new Outsourced(4, "Middle", 104, 5.99m, 150, 100, "Shuman"));
 
 
             Application.Run(new Form1());

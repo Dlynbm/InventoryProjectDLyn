@@ -49,35 +49,35 @@ namespace InventoryProjectDLyn
             // DataGridParts
             // 
             this.DataGridParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridParts.Location = new System.Drawing.Point(10, 155);
-            this.DataGridParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataGridParts.Location = new System.Drawing.Point(5, 80);
+            this.DataGridParts.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.DataGridParts.MultiSelect = false;
             this.DataGridParts.Name = "DataGridParts";
             this.DataGridParts.RowHeadersWidth = 102;
             this.DataGridParts.RowTemplate.Height = 40;
-            this.DataGridParts.Size = new System.Drawing.Size(1114, 610);
+            this.DataGridParts.Size = new System.Drawing.Size(557, 315);
             this.DataGridParts.TabIndex = 0;
-            this.DataGridParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridParts_CellClick);
+            this.DataGridParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridParts_CellClick);
             this.DataGridParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.myBindingComplete);
             // 
             // DataGridProducts
             // 
             this.DataGridProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridProducts.Location = new System.Drawing.Point(1178, 147);
-            this.DataGridProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataGridProducts.Location = new System.Drawing.Point(589, 76);
+            this.DataGridProducts.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.DataGridProducts.MultiSelect = false;
             this.DataGridProducts.Name = "DataGridProducts";
             this.DataGridProducts.RowHeadersWidth = 102;
             this.DataGridProducts.RowTemplate.Height = 40;
-            this.DataGridProducts.Size = new System.Drawing.Size(1184, 618);
+            this.DataGridProducts.Size = new System.Drawing.Size(592, 319);
             this.DataGridProducts.TabIndex = 1;
             // 
             // AddPartBtn
             // 
-            this.AddPartBtn.Location = new System.Drawing.Point(72, 820);
-            this.AddPartBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddPartBtn.Location = new System.Drawing.Point(36, 423);
+            this.AddPartBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.AddPartBtn.Name = "AddPartBtn";
-            this.AddPartBtn.Size = new System.Drawing.Size(218, 93);
+            this.AddPartBtn.Size = new System.Drawing.Size(109, 48);
             this.AddPartBtn.TabIndex = 3;
             this.AddPartBtn.Text = "Add Part";
             this.AddPartBtn.UseVisualStyleBackColor = true;
@@ -85,10 +85,10 @@ namespace InventoryProjectDLyn
             // 
             // ModifyPartBtn
             // 
-            this.ModifyPartBtn.Location = new System.Drawing.Point(336, 820);
-            this.ModifyPartBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ModifyPartBtn.Location = new System.Drawing.Point(168, 423);
+            this.ModifyPartBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ModifyPartBtn.Name = "ModifyPartBtn";
-            this.ModifyPartBtn.Size = new System.Drawing.Size(258, 95);
+            this.ModifyPartBtn.Size = new System.Drawing.Size(129, 49);
             this.ModifyPartBtn.TabIndex = 4;
             this.ModifyPartBtn.Text = "Modify Part";
             this.ModifyPartBtn.UseVisualStyleBackColor = true;
@@ -96,20 +96,20 @@ namespace InventoryProjectDLyn
             // 
             // DeleteBtn
             // 
-            this.DeleteBtn.Location = new System.Drawing.Point(640, 820);
-            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteBtn.Location = new System.Drawing.Point(320, 423);
+            this.DeleteBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.DeleteBtn.Name = "DeleteBtn";
-            this.DeleteBtn.Size = new System.Drawing.Size(242, 95);
+            this.DeleteBtn.Size = new System.Drawing.Size(121, 49);
             this.DeleteBtn.TabIndex = 5;
             this.DeleteBtn.Text = "Delete";
             this.DeleteBtn.UseVisualStyleBackColor = true;
             // 
             // ExitBtn
             // 
-            this.ExitBtn.Location = new System.Drawing.Point(2088, 820);
-            this.ExitBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ExitBtn.Location = new System.Drawing.Point(1044, 423);
+            this.ExitBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ExitBtn.Name = "ExitBtn";
-            this.ExitBtn.Size = new System.Drawing.Size(224, 85);
+            this.ExitBtn.Size = new System.Drawing.Size(112, 44);
             this.ExitBtn.TabIndex = 6;
             this.ExitBtn.Text = "Exit";
             this.ExitBtn.UseVisualStyleBackColor = true;
@@ -118,74 +118,75 @@ namespace InventoryProjectDLyn
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 35);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(23, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(405, 32);
+            this.label1.Size = new System.Drawing.Size(202, 17);
             this.label1.TabIndex = 7;
             this.label1.Text = "Inventory Management System";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 107);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(32, 55);
+            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 32);
+            this.label2.Size = new System.Drawing.Size(41, 17);
             this.label2.TabIndex = 8;
             this.label2.Text = "Parts";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1302, 103);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(651, 53);
+            this.label3.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 32);
+            this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "Products";
             // 
             // SearchPartBtn
             // 
-            this.SearchPartBtn.Location = new System.Drawing.Point(590, 81);
-            this.SearchPartBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchPartBtn.Location = new System.Drawing.Point(295, 42);
+            this.SearchPartBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.SearchPartBtn.Name = "SearchPartBtn";
-            this.SearchPartBtn.Size = new System.Drawing.Size(182, 58);
+            this.SearchPartBtn.Size = new System.Drawing.Size(91, 30);
             this.SearchPartBtn.TabIndex = 10;
             this.SearchPartBtn.Text = "Search";
             this.SearchPartBtn.UseVisualStyleBackColor = true;
+            this.SearchPartBtn.Click += new System.EventHandler(this.SearchPartBtn_Click);
             // 
             // ProductSearchBtn
             // 
-            this.ProductSearchBtn.Location = new System.Drawing.Point(1822, 81);
-            this.ProductSearchBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProductSearchBtn.Location = new System.Drawing.Point(911, 42);
+            this.ProductSearchBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ProductSearchBtn.Name = "ProductSearchBtn";
-            this.ProductSearchBtn.Size = new System.Drawing.Size(208, 54);
+            this.ProductSearchBtn.Size = new System.Drawing.Size(104, 28);
             this.ProductSearchBtn.TabIndex = 11;
             this.ProductSearchBtn.Text = "Search";
             this.ProductSearchBtn.UseVisualStyleBackColor = true;
             // 
             // PartSearchTxtBox
             // 
-            this.PartSearchTxtBox.Location = new System.Drawing.Point(800, 93);
-            this.PartSearchTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PartSearchTxtBox.Location = new System.Drawing.Point(400, 48);
+            this.PartSearchTxtBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.PartSearchTxtBox.Name = "PartSearchTxtBox";
-            this.PartSearchTxtBox.Size = new System.Drawing.Size(242, 38);
+            this.PartSearchTxtBox.Size = new System.Drawing.Size(123, 22);
             this.PartSearchTxtBox.TabIndex = 12;
             // 
             // ProductSearchTxtBx
             // 
-            this.ProductSearchTxtBx.Location = new System.Drawing.Point(2054, 95);
-            this.ProductSearchTxtBx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ProductSearchTxtBx.Location = new System.Drawing.Point(1027, 49);
+            this.ProductSearchTxtBx.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.ProductSearchTxtBx.Name = "ProductSearchTxtBx";
-            this.ProductSearchTxtBx.Size = new System.Drawing.Size(258, 38);
+            this.ProductSearchTxtBx.Size = new System.Drawing.Size(131, 22);
             this.ProductSearchTxtBx.TabIndex = 13;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2512, 1139);
+            this.ClientSize = new System.Drawing.Size(1256, 588);
             this.Controls.Add(this.ProductSearchTxtBx);
             this.Controls.Add(this.PartSearchTxtBox);
             this.Controls.Add(this.ProductSearchBtn);
@@ -199,7 +200,7 @@ namespace InventoryProjectDLyn
             this.Controls.Add(this.AddPartBtn);
             this.Controls.Add(this.DataGridProducts);
             this.Controls.Add(this.DataGridParts);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "Form1";
             this.Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridParts)).EndInit();

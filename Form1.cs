@@ -21,22 +21,24 @@ namespace InventoryProjectDLyn
             idxSelectedPart = -1;
 
             DataGridParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridParts.RowHeadersVisible = false;        
+            DataGridParts.RowHeadersVisible = false;
 
             //make grid readonly
             DataGridParts.ReadOnly = true;
 
             DataGridParts.AllowUserToAddRows = true;
-            //sets the data source
+
+            //sets the data source and sets the PartStockPile list
             DataGridParts.DataSource = Inventory.PartStockPile;
 
         }
 
+        //shows the current part on the modify form page
         private void ModifyPartBtn_Click(object sender, EventArgs e)
         {
             if (idxSelectedPart >= 0)
             {
-                this.Hide();
+
                 ModifyPartForm f2 = new ModifyPartForm();
                 f2.Show();
             }
@@ -53,20 +55,21 @@ namespace InventoryProjectDLyn
             DataGridParts.ClearSelection();
         }
 
+        //anytime I select a cell this code executes
         private void DataGridParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                //idxSelectedPart = e.RowIndex;
+
                 idxSelectedPart = DataGridParts.CurrentCell.RowIndex;
                 Inventory.CurrentPartID = (int)DataGridParts.Rows[idxSelectedPart].Cells[0].Value;
                 Inventory.CurrentPart = Inventory.lookupPart(Inventory.CurrentPartID);
-                DataGridParts.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Blue;
+                DataGridParts.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             }
-        }   
+        }
 
 
-        
+
         private void button1_Click(object sender, EventArgs e)
         {
             var add = new AddPartForm();
@@ -76,10 +79,35 @@ namespace InventoryProjectDLyn
         private void ExitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }    
+        }
 
+        private void SearchPartBtn_Click(object sender, EventArgs e)
+        {
+            DataGridParts.ClearSelection();
+            bool found = false;
+            if (PartSearchTxtBox.Text != "")
+            {
+                for (int i = 0; i < Inventory.PartStockPile.Count; i++)
+                {
+                        if (Inventory.PartStockPile[i].Name.ToUpper().Contains(PartSearchTxtBox.Text.ToUpper()))
+
+                        {
+                            DataGridParts.Rows[i].Selected = true;
+                        found = true;
+                    }
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("Not found");
+            }
+        }
     }
 }
+
+  
+    
+
 
 
 //    private void DeleteBtn_Click(object sender, EventArgs e)
@@ -103,8 +131,8 @@ namespace InventoryProjectDLyn
 //}
 
 
-    
 
-        
-    
+
+
+
 

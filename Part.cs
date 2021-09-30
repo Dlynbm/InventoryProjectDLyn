@@ -9,10 +9,11 @@ namespace InventoryProjectDLyn
 {
     abstract class Part
     {
+        //properties
         public int PartID { get; set; }
 
-        public string Name { get; set; }
-
+        public string Name { get; set; } 
+            
         public int InStock { get; set; }
 
         public decimal Price { get; set; }
@@ -20,6 +21,9 @@ namespace InventoryProjectDLyn
         public int Min { get; set; }
 
         public int Max { get; set; }
+
+
+        private static int partIDHolder = 0;
 
         public static BindingList<Part> partStockPile = new BindingList<Part>();
 
@@ -36,7 +40,7 @@ namespace InventoryProjectDLyn
 
         public Part(string n, int inS, decimal price, int max, int min)
         {
-        //PartID = counter;
+            PartID = ++partIDHolder;
             Name = n;
             InStock = inS;
             Price = price;
