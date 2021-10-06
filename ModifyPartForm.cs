@@ -19,30 +19,70 @@ namespace InventoryProjectDLyn
             int number;
             decimal d;
             return (!string.IsNullOrWhiteSpace(ModifyNameTxtBox.Text))
+
+                && (!string.IsNullOrWhiteSpace(ModifyInventoryTxtBox.Text))
                 && (!Int32.TryParse(ModifyInventoryTxtBox.Text, out number))
+
+                && (!string.IsNullOrWhiteSpace(PriceCostTextBox.Text))
                 && (!Decimal.TryParse(PriceCostTextBox.Text, out d))
+
+                && (!string.IsNullOrWhiteSpace(MaxTxtBox.Text))
                 && (!Int32.TryParse(MaxTxtBox.Text, out number))
+
+                && (!string.IsNullOrWhiteSpace(MinTxtBox.Text))
                 && (!Int32.TryParse(MinTxtBox.Text, out number))
-                && (!(string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text)
-                || (isInHouse && !Int32.TryParse(MachineCoNameTxtBox.Text, out number))));
+
+            && (!(string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text))
+            && (isInHouse && !Int32.TryParse(MachineCoNameTxtBox.Text, out number)));
         }
 
-        private void checkOnRBSwitch()
+        private void ModifyPartForm_Load(object sender, EventArgs e)
         {
-            int number;
-            if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (isInHouse && !Int32.TryParse(MachineCoNameTxtBox.Text, out number)))
-            {
-                MachineCoNameTxtBox.BackColor = System.Drawing.Color.Red;
-            }
-            else
-            {
-                MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
-            }
-            ModifySaveBtn.Enabled = allowSave();
+            checkRadioBtn();
         }
 
-        //constructor, this sets the form with the current part being displayed
-        public ModifyPartForm()
+        //private void checkOnRBSwitch()
+        //{
+        //    int number;
+        //    if (InHouseRadioBtn.Checked)
+        //    {
+        //        bool success = Int32.TryParse(MachineCoNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text));
+        //        //MessageBox.Show("Hits this");
+        //        if (!success)
+        //        {
+        //            MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+        //            MessageBox.Show("Please enter only a number");
+        //            ModifySaveBtn.Enabled = false;
+
+        //        }
+        //        else
+        //        {
+        //            MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
+        //            ModifySaveBtn.Enabled = true;
+        //        }
+
+
+        //        if (OutsourcedRadioBtn.Checked)
+        //        {
+        //            bool approved = (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (Int32.TryParse(MachineCoNameTxtBox.Text, out number)));
+        //            if (!approved)
+        //            {
+        //                MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+        //                //MessageBox.Show("Must be a valid company name");
+        //                ModifySaveBtn.Enabled = false;
+        //            }
+        //            else
+        //            {
+        //                MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
+        //                ModifySaveBtn.Enabled = true;
+        //            }
+        //        }
+        //    }
+        //}
+
+
+            //constructor, this sets the form with the current part being displayed
+            public ModifyPartForm()
         {
             InitializeComponent();
             ModifyPartIdTxtBox.Text = Inventory.CurrentPart.PartID.ToString();
@@ -63,87 +103,13 @@ namespace InventoryProjectDLyn
             }
             else
             {
-                Outsourced o = (Outsourced)Inventory.CurrentPart;
-                MachineIdLabel.Text = o.CompanyName;
-                MachineCoNameTxtBox.Text = o.CompanyName;
+                Outsourced e = (Outsourced)Inventory.CurrentPart;
+                MachineIdLabel.Text = e.CompanyName;
+                MachineCoNameTxtBox.Text = e.CompanyName;
                 isInHouse = false;
                 OutsourcedRadioBtn.Checked = true;
             }
         }
-
-        private void MachineCoNameTxtBox_TextChanged(object sender, EventArgs e)
-        {
-            checkOnRBSwitch();
-        }
-
-        //private void ModifyPartForm_Load(object sender, EventArgs e)
-        //{
-        //    checkRadioBtn();
-        //}
-
-        private void ModifySaveBtn_Click(object sender, EventArgs e)
-        {
-
-            if (InHouseRadioBtn.Checked)
-            {
-                InHouse inHouse = new InHouse((Inventory.PartStockPile.Count + 1), ModifyNameTxtBox.Text, Convert.ToInt32(ModifyInventoryTxtBox.Text),
-                Convert.ToDecimal(PriceCostTextBox.Text),
-                Convert.ToInt32(MaxTxtBox.Text), Convert.ToInt32(MinTxtBox.Text), Convert.ToInt32(MachineCoNameTxtBox.Text));
-
-                if (String.IsNullOrWhiteSpace(ModifyNameTxtBox.Text))
-                {
-                    MessageBox.Show("Name cannot be empty");
-                }
-
-                if (int.Parse(ModifyInventoryTxtBox.Text) > int.Parse(MaxTxtBox.Text))
-                {
-                    MessageBox.Show("Inventory stock level cannot exceed Max stock level");
-                    return;
-                }
-
-                if (int.Parse(MinTxtBox.Text) > int.Parse(MaxTxtBox.Text))
-                {
-                    MessageBox.Show("Minimum stock level cannot exceed max stock level");
-                    return;
-                }
-                else
-                {
-                    Inventory.swap(inHouse);
-                }
-            }
-            else
-            {
-                OutsourcedRadioBtn.Checked = true;
-                Outsourced outsourced = new Outsourced((Inventory.PartStockPile.Count + 1), ModifyNameTxtBox.Text, Convert.ToInt32(ModifyInventoryTxtBox.Text),
-                Convert.ToDecimal(PriceCostTextBox.Text),
-                Convert.ToInt32(MaxTxtBox.Text), Convert.ToInt32(MinTxtBox.Text), (MachineCoNameTxtBox.Text));
-                if (String.IsNullOrWhiteSpace(ModifyNameTxtBox.Text))
-                {
-                    MessageBox.Show("Name cannot be empty");
-                }
-
-                if (int.Parse(ModifyInventoryTxtBox.Text) > int.Parse(MaxTxtBox.Text))
-                {
-                    MessageBox.Show("Inventory stock level cannot exceed Max stock level");
-                    return;
-                }
-
-                if (int.Parse(MinTxtBox.Text) > int.Parse(MaxTxtBox.Text))
-                {
-                    MessageBox.Show("Minimum stock level cannot exceed max stock level");
-                    return;
-                }
-                else
-                {
-                    Inventory.swap(outsourced);
-                }
-
-            }
-            this.Hide();
-            Form1 f1 = new Form1();
-            f1.Show();
-        }
-
 
         private void checkRadioBtn()
         {
@@ -155,115 +121,234 @@ namespace InventoryProjectDLyn
             {
                 MachineIdLabel.Text = "Company Name:";
             }
-        }         
-
-        private void ModifyCancelBtn_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            
         }
 
-        
+
+
+
+
+        private void MachineCoNameTxtBox_TextChanged(object sender, EventArgs e)
+        {
+            //checkOnRBSwitch();
+            if (InHouseRadioBtn.Checked)
+            {
+                int number;
+
+                if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (!Int32.TryParse(ModifyInventoryTxtBox.Text, out number)))
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+                    MessageBox.Show("Please enter only a number");
+                    ModifySaveBtn.Enabled = false;
+
+                }
+                else
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
+                    ModifySaveBtn.Enabled = true;
+                }
+            }
+            //else if (OutsourcedRadioBtn.Checked)
+            //{
+            //    int number;
+            //    if (!Int32.TryParse(MachineCoNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text)))
+            //    {
+            //        ModifyNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+            //        MessageBox.Show("Must be a valid name, not a number");
+            //        ModifySaveBtn.Enabled = false;
+            //    }
+            //    else
+            //    {
+            //        ModifyNameTxtBox.BackColor = System.Drawing.Color.White;
+            //        ModifySaveBtn.Enabled = true;
+            //    }
+                
+            //}
+        }
+
+
+    private void ModifySaveBtn_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(MaxTxtBox.Text) < Convert.ToInt32(MinTxtBox.Text))
+            {
+                MessageBox.Show("Min cannot be greater than max");
+                return;
+            }
+
+            if (Convert.ToInt32(ModifyInventoryTxtBox.Text) < Convert.ToInt32(MinTxtBox.Text) || Convert.ToInt32(ModifyInventoryTxtBox.Text) > Convert.ToInt32(MaxTxtBox.Text))
+            {
+                MessageBox.Show("Inventory cannot be less than the min or greater than the max");
+                return;
+            }
+
+            if (InHouseRadioBtn.Checked)
+
+            {
+                bool success = Int64.TryParse(MachineCoNameTxtBox.Text, out long number);
+                if (!success)
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+                    MessageBox.Show("Please enter only a number");
+                    ModifySaveBtn.Enabled = false;
+
+                }
+                InHouse inHouse = new InHouse((Inventory.PartStockPile.Count + 1), 
+                ModifyNameTxtBox.Text,
+                Convert.ToInt32(ModifyInventoryTxtBox.Text),
+                Convert.ToDecimal(PriceCostTextBox.Text),
+                Convert.ToInt32(MaxTxtBox.Text), Convert.ToInt32(MinTxtBox.Text),
+                Convert.ToInt32(MachineCoNameTxtBox.Text));
+                Inventory.swap(inHouse);
+                isInHouse = true;
+
+            }
+            else 
+            {
+                Outsourced outsourced = new Outsourced((Inventory.PartStockPile.Count + 1), 
+                ModifyNameTxtBox.Text,
+                Convert.ToInt32(ModifyInventoryTxtBox.Text),
+                Convert.ToDecimal(PriceCostTextBox.Text),
+                Convert.ToInt32(MaxTxtBox.Text), Convert.ToInt32(MinTxtBox.Text),
+                (MachineCoNameTxtBox.Text));
+                Inventory.swap(outsourced);
+                isInHouse = false;
+            }
+            this.Hide();
+            Form1 f1 = new Form1();
+            f1.Show();
+        }
+
         private void InHouseRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             //MessageBox.Show("Inhouse");
             MachineIdLabel.Text = "Machine ID";
+            isInHouse = true;
+            checkRadioBtn();
         }
+
 
         private void OutsourcedRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             MachineIdLabel.Text = "Company Name";
+            isInHouse = false;
+            checkRadioBtn();
+
+        }
+
+
+
+
+        private void ModifyCancelBtn_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
 
         }
 
         private void ModifyNameTxtBox_TextChanged_1(object sender, EventArgs e)
         {
             {
-                if (string.IsNullOrWhiteSpace(ModifyNameTxtBox.Text))
+                int number;
+                if (Int32.TryParse(ModifyNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(ModifyNameTxtBox.Text)))
                 {
                     ModifyNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+                    MessageBox.Show("Must be a valid name, not a number");
+                    ModifySaveBtn.Enabled = false;
                 }
                 else
                 {
                     ModifyNameTxtBox.BackColor = System.Drawing.Color.White;
+                    ModifySaveBtn.Enabled = true;
                 }
-                
+
             }
         }
-
 
 
         private void ModifyInventoryTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if (Int32.TryParse(ModifyInventoryTxtBox.Text, out var outParse))
+            int number;
+            if (string.IsNullOrWhiteSpace(ModifyInventoryTxtBox.Text) || (!Int32.TryParse(ModifyInventoryTxtBox.Text, out number)))
             {
-                ModifyInventoryTxtBox.BackColor = System.Drawing.Color.White;
-               
+                ModifyInventoryTxtBox.BackColor = System.Drawing.Color.Yellow;
+                MessageBox.Show("Must be a number.");
+                ModifySaveBtn.Enabled = false;
+
             }
             else
             {
-                ModifyInventoryTxtBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be an int.");
+                ModifyInventoryTxtBox.BackColor = System.Drawing.Color.White;
+                ModifySaveBtn.Enabled = true;
             }
-           
+            
+
         }
 
         private void PriceCostTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (decimal.TryParse(PriceCostTextBox.Text, out var outParse))
+            //decimal d;
+            if (string.IsNullOrWhiteSpace(PriceCostTextBox.Text) || (!decimal.TryParse(PriceCostTextBox.Text, out var outParse)))
             {
-                PriceCostTextBox.BackColor = System.Drawing.Color.White;
+                PriceCostTextBox.BackColor = System.Drawing.Color.Yellow;
+                MessageBox.Show("Must be a decimal.");
+                ModifySaveBtn.Enabled = false;
             }
             else
             {
-                PriceCostTextBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be a decimal");
+                PriceCostTextBox.BackColor = System.Drawing.Color.White;
+                ModifySaveBtn.Enabled = true;
             }
             
+
         }
 
         private void MaxTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if (Int32.TryParse(MaxTxtBox.Text,out var outParse))
+            int number;
+            if (string.IsNullOrWhiteSpace(MaxTxtBox.Text) || (!Int32.TryParse(MaxTxtBox.Text, out number)))
             {
-                MaxTxtBox.BackColor = System.Drawing.Color.White;
+                MaxTxtBox.BackColor = System.Drawing.Color.Yellow;
+                MessageBox.Show("Must be a number.");
+                ModifySaveBtn.Enabled = false;
             }
             else
             {
-                MaxTxtBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be a number");
+                MaxTxtBox.BackColor = System.Drawing.Color.White;
+                ModifySaveBtn.Enabled = true;
+
             }
             
+
         }
 
         private void MinTxtBox_TextChanged(object sender, EventArgs e)
         {
-            if (Int32.TryParse(MinTxtBox.Text, out var outParse))
+            int number;
+            if (string.IsNullOrWhiteSpace(MinTxtBox.Text) || (!Int32.TryParse(MinTxtBox.Text, out number)))
             {
-                MinTxtBox.BackColor = System.Drawing.Color.White;
+                MinTxtBox.BackColor = System.Drawing.Color.Yellow;
+                MessageBox.Show("Must be a number.");
+                ModifySaveBtn.Enabled = false;
             }
             else
             {
-                MinTxtBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be a number");
+                MinTxtBox.BackColor = System.Drawing.Color.White;
+                ModifySaveBtn.Enabled = true;
             }
             
+
         }
 
-        //private void MachineCoNameTxtBox_TextChanged_1(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text))
-        //    {
-        //        MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
-        //    }
-        //    else
-        //    {
-        //        MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
-        //    }
 
-        //}
+
+        
+
+        
+
+
+        
+
     }
-    }
+}
+
 
 
 

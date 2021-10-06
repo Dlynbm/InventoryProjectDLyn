@@ -11,10 +11,14 @@ namespace InventoryProjectDLyn
     {
 
         private static BindingList<Part> partStockPile = new BindingList<Part>();
-        public static BindingList<Part> TempList { get { return partStockPile; } set { partStockPile = value; } }
-       
         //provides the PartStockPile List
         public static BindingList<Part> PartStockPile { get { return partStockPile; } set { partStockPile = value; } }
+
+        private static BindingList<Product> productStockPile = new BindingList<Product>();
+        //provides the PartStockPile List
+        public static BindingList<Product> ProductStockPile { get { return productStockPile; } set { productStockPile = value; } }
+
+
 
         //records the current part chosen
         public static Part CurrentPart { get; set; }

@@ -64,7 +64,7 @@ namespace InventoryProjectDLyn
             // 
             this.InHouseRadioBtn.AutoSize = true;
             this.InHouseRadioBtn.Location = new System.Drawing.Point(576, 91);
-            this.InHouseRadioBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.InHouseRadioBtn.Margin = new System.Windows.Forms.Padding(8);
             this.InHouseRadioBtn.Name = "InHouseRadioBtn";
             this.InHouseRadioBtn.Size = new System.Drawing.Size(166, 36);
             this.InHouseRadioBtn.TabIndex = 1;
@@ -77,7 +77,7 @@ namespace InventoryProjectDLyn
             // 
             this.OutsourcedRadioBtn.AutoSize = true;
             this.OutsourcedRadioBtn.Location = new System.Drawing.Point(1150, 91);
-            this.OutsourcedRadioBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.OutsourcedRadioBtn.Margin = new System.Windows.Forms.Padding(8);
             this.OutsourcedRadioBtn.Name = "OutsourcedRadioBtn";
             this.OutsourcedRadioBtn.Size = new System.Drawing.Size(199, 36);
             this.OutsourcedRadioBtn.TabIndex = 2;
@@ -159,7 +159,7 @@ namespace InventoryProjectDLyn
             // ModifyPartIdTxtBox
             // 
             this.ModifyPartIdTxtBox.Location = new System.Drawing.Point(742, 190);
-            this.ModifyPartIdTxtBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.ModifyPartIdTxtBox.Margin = new System.Windows.Forms.Padding(8);
             this.ModifyPartIdTxtBox.Name = "ModifyPartIdTxtBox";
             this.ModifyPartIdTxtBox.ReadOnly = true;
             this.ModifyPartIdTxtBox.Size = new System.Drawing.Size(260, 38);
@@ -168,7 +168,7 @@ namespace InventoryProjectDLyn
             // ModifyNameTxtBox
             // 
             this.ModifyNameTxtBox.Location = new System.Drawing.Point(742, 300);
-            this.ModifyNameTxtBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.ModifyNameTxtBox.Margin = new System.Windows.Forms.Padding(8);
             this.ModifyNameTxtBox.Name = "ModifyNameTxtBox";
             this.ModifyNameTxtBox.Size = new System.Drawing.Size(260, 38);
             this.ModifyNameTxtBox.TabIndex = 11;
@@ -177,7 +177,7 @@ namespace InventoryProjectDLyn
             // ModifyInventoryTxtBox
             // 
             this.ModifyInventoryTxtBox.Location = new System.Drawing.Point(742, 389);
-            this.ModifyInventoryTxtBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.ModifyInventoryTxtBox.Margin = new System.Windows.Forms.Padding(8);
             this.ModifyInventoryTxtBox.Name = "ModifyInventoryTxtBox";
             this.ModifyInventoryTxtBox.Size = new System.Drawing.Size(260, 38);
             this.ModifyInventoryTxtBox.TabIndex = 12;
@@ -186,7 +186,7 @@ namespace InventoryProjectDLyn
             // PriceCostTextBox
             // 
             this.PriceCostTextBox.Location = new System.Drawing.Point(742, 488);
-            this.PriceCostTextBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.PriceCostTextBox.Margin = new System.Windows.Forms.Padding(8);
             this.PriceCostTextBox.Name = "PriceCostTextBox";
             this.PriceCostTextBox.Size = new System.Drawing.Size(260, 38);
             this.PriceCostTextBox.TabIndex = 13;
@@ -195,7 +195,7 @@ namespace InventoryProjectDLyn
             // MaxTxtBox
             // 
             this.MaxTxtBox.Location = new System.Drawing.Point(542, 606);
-            this.MaxTxtBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.MaxTxtBox.Margin = new System.Windows.Forms.Padding(8);
             this.MaxTxtBox.Name = "MaxTxtBox";
             this.MaxTxtBox.Size = new System.Drawing.Size(130, 38);
             this.MaxTxtBox.TabIndex = 14;
@@ -204,7 +204,7 @@ namespace InventoryProjectDLyn
             // MinTxtBox
             // 
             this.MinTxtBox.Location = new System.Drawing.Point(918, 606);
-            this.MinTxtBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.MinTxtBox.Margin = new System.Windows.Forms.Padding(8);
             this.MinTxtBox.Name = "MinTxtBox";
             this.MinTxtBox.Size = new System.Drawing.Size(132, 38);
             this.MinTxtBox.TabIndex = 15;
@@ -213,15 +213,16 @@ namespace InventoryProjectDLyn
             // MachineCoNameTxtBox
             // 
             this.MachineCoNameTxtBox.Location = new System.Drawing.Point(662, 736);
-            this.MachineCoNameTxtBox.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.MachineCoNameTxtBox.Margin = new System.Windows.Forms.Padding(8);
             this.MachineCoNameTxtBox.Name = "MachineCoNameTxtBox";
             this.MachineCoNameTxtBox.Size = new System.Drawing.Size(260, 38);
             this.MachineCoNameTxtBox.TabIndex = 16;
+            this.MachineCoNameTxtBox.TextChanged += new System.EventHandler(this.MachineCoNameTxtBox_TextChanged);
             // 
             // ModifySaveBtn
             // 
             this.ModifySaveBtn.Location = new System.Drawing.Point(882, 953);
-            this.ModifySaveBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.ModifySaveBtn.Margin = new System.Windows.Forms.Padding(8);
             this.ModifySaveBtn.Name = "ModifySaveBtn";
             this.ModifySaveBtn.Size = new System.Drawing.Size(234, 95);
             this.ModifySaveBtn.TabIndex = 17;
@@ -232,7 +233,7 @@ namespace InventoryProjectDLyn
             // ModifyCancelBtn
             // 
             this.ModifyCancelBtn.Location = new System.Drawing.Point(1262, 953);
-            this.ModifyCancelBtn.Margin = new System.Windows.Forms.Padding(8, 8, 8, 8);
+            this.ModifyCancelBtn.Margin = new System.Windows.Forms.Padding(8);
             this.ModifyCancelBtn.Name = "ModifyCancelBtn";
             this.ModifyCancelBtn.Size = new System.Drawing.Size(242, 95);
             this.ModifyCancelBtn.TabIndex = 18;
@@ -264,10 +265,10 @@ namespace InventoryProjectDLyn
             this.Controls.Add(this.OutsourcedRadioBtn);
             this.Controls.Add(this.InHouseRadioBtn);
             this.Controls.Add(this.ModifyPartLbl);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModifyPartForm";
             this.Text = "ModifyPartForm";
-            //this.Load += new System.EventHandler(this.ModifyPartForm_Load);
+            this.Load += new System.EventHandler(this.ModifyPartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

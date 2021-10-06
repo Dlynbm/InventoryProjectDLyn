@@ -19,17 +19,20 @@ namespace InventoryProjectDLyn
         {
             InitializeComponent();
             idxSelectedPart = -1;
-
+            //Part Info
             DataGridParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridParts.RowHeadersVisible = false;
-
             //make grid readonly
             DataGridParts.ReadOnly = true;
-
             DataGridParts.AllowUserToAddRows = true;
-
             //sets the data source and sets the PartStockPile list
             DataGridParts.DataSource = Inventory.PartStockPile;
+            
+            //Product Info
+            DataGridProducts.DataSource = Inventory.ProductStockPile;
+            DataGridProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DataGridProducts.RowHeadersVisible = false;
+
 
         }
 
@@ -38,7 +41,6 @@ namespace InventoryProjectDLyn
         {
             if (idxSelectedPart >= 0)
             {
-
                 ModifyPartForm f2 = new ModifyPartForm();
                 f2.Show();
             }
@@ -89,10 +91,10 @@ namespace InventoryProjectDLyn
             {
                 for (int i = 0; i < Inventory.PartStockPile.Count; i++)
                 {
-                        if (Inventory.PartStockPile[i].Name.ToUpper().Contains(PartSearchTxtBox.Text.ToUpper()))
+                    if (Inventory.PartStockPile[i].Name.ToUpper().Contains(PartSearchTxtBox.Text.ToUpper()))
 
-                        {
-                            DataGridParts.Rows[i].Selected = true;
+                    {
+                        DataGridParts.Rows[i].Selected = true;
                         found = true;
                     }
                 }
@@ -102,33 +104,29 @@ namespace InventoryProjectDLyn
                 MessageBox.Show("Not found");
             }
         }
+        private void DeleteBtn_Click_1(object sender, EventArgs e)
+        {
+            {
+                if (DataGridParts.CurrentRow == null || !DataGridParts.CurrentRow.Selected)
+                {
+                    MessageBox.Show("Nothing is selected.  Please make a selection");
+                    return;
+                }
+                Part P = DataGridParts.CurrentRow.DataBoundItem as Part;
+                var chosenPart = DataGridParts.CurrentCell.Value;
+
+                DialogResult result = MessageBox.Show(" Are you sure you want to delete PartId " + chosenPart, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    Inventory.PartStockPile.Remove(P);
+                }
+            }
+        }
     }
 }
 
-  
-    
 
-
-
-//    private void DeleteBtn_Click(object sender, EventArgs e)
-//    {
-//        //if (DataGridParts.CurrentRow == null || !DataGridParts.CurrentRow.Selected)
-//        //{
-//        //    MessageBox.Show("Nothing is selected.  Please make a selection");
-//        //    return;
-//        //}
-//        //Part P = DataGridParts.CurrentRow.DataBoundItem as Part;
-//        //var chosenPart = DataGridParts.CurrentCell.Value;
-
-//        //DialogResult result = MessageBox.Show(" Are you sure you want to delete PartId " + chosenPart, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-//        //if (result == DialogResult.Yes)
-//        //{
-//        Inventory.PartStockPile.Remove(P);
-//    }
-
-//    }
-//}
 
 
 

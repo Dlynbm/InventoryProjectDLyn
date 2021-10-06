@@ -23,7 +23,7 @@ namespace InventoryProjectDLyn
         public int Max { get; set; }
 
 
-        private static int partIDHolder = 0;
+        public static int partCount;
 
         public static BindingList<Part> partStockPile = new BindingList<Part>();
 
@@ -40,7 +40,7 @@ namespace InventoryProjectDLyn
 
         public Part(string n, int inS, decimal price, int max, int min)
         {
-            PartID = ++partIDHolder;
+            PartID = partCount++;
             Name = n;
             InStock = inS;
             Price = price;

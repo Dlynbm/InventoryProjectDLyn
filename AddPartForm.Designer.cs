@@ -131,6 +131,7 @@ namespace InventoryProjectDLyn
             this.AddPartNameTxtBx.Name = "AddPartNameTxtBx";
             this.AddPartNameTxtBx.Size = new System.Drawing.Size(224, 38);
             this.AddPartNameTxtBx.TabIndex = 12;
+            this.AddPartNameTxtBx.TextChanged += new System.EventHandler(this.AddPartNameTxtBx_TextChanged);
             // 
             // AddPartPriceTxtBx
             // 
@@ -139,6 +140,7 @@ namespace InventoryProjectDLyn
             this.AddPartPriceTxtBx.Name = "AddPartPriceTxtBx";
             this.AddPartPriceTxtBx.Size = new System.Drawing.Size(204, 38);
             this.AddPartPriceTxtBx.TabIndex = 14;
+            this.AddPartPriceTxtBx.TextChanged += new System.EventHandler(this.AddPartPriceTxtBx_TextChanged);
             // 
             // AddPartMachineCoTxtBx
             // 
@@ -147,6 +149,7 @@ namespace InventoryProjectDLyn
             this.AddPartMachineCoTxtBx.Name = "AddPartMachineCoTxtBx";
             this.AddPartMachineCoTxtBx.Size = new System.Drawing.Size(244, 38);
             this.AddPartMachineCoTxtBx.TabIndex = 17;
+            this.AddPartMachineCoTxtBx.TextChanged += new System.EventHandler(this.AddPartMachineCoTxtBx_TextChanged);
             // 
             // AddPartCancelBtn
             // 
@@ -192,6 +195,7 @@ namespace InventoryProjectDLyn
             this.AddPartMaxTxtBx.Name = "AddPartMaxTxtBx";
             this.AddPartMaxTxtBx.Size = new System.Drawing.Size(100, 38);
             this.AddPartMaxTxtBx.TabIndex = 15;
+            this.AddPartMaxTxtBx.TextChanged += new System.EventHandler(this.AddPartMaxTxtBx_TextChanged);
             // 
             // PartMaxLbl
             // 
@@ -220,6 +224,7 @@ namespace InventoryProjectDLyn
             this.AddPartMinTxtBx.Name = "AddPartMinTxtBx";
             this.AddPartMinTxtBx.Size = new System.Drawing.Size(106, 38);
             this.AddPartMinTxtBx.TabIndex = 16;
+            this.AddPartMinTxtBx.TextChanged += new System.EventHandler(this.AddPartMinTxtBx_TextChanged);
             // 
             // PartInventoryLbl
             // 
@@ -238,6 +243,7 @@ namespace InventoryProjectDLyn
             this.SavePartInventoryTxtBx.Name = "SavePartInventoryTxtBx";
             this.SavePartInventoryTxtBx.Size = new System.Drawing.Size(204, 38);
             this.SavePartInventoryTxtBx.TabIndex = 13;
+            this.SavePartInventoryTxtBx.TextChanged += new System.EventHandler(this.SavePartInventoryTxtBx_TextChanged);
             // 
             // panel1
             // 

@@ -8,8 +8,6 @@ namespace InventoryProjectDLyn
 {
     class Outsourced : Part
     {
-        
-
         public Outsourced(int pID, string n, int inS, decimal price, int min, int max, string cName)
             :base(pID, n, inS, price, min, max)
         {
@@ -21,6 +19,8 @@ namespace InventoryProjectDLyn
         {
             CompanyName = cName;
         }
+
+      
 
         public string CompanyName { get; set; }
 
