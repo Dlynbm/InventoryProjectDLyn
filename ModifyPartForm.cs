@@ -41,48 +41,46 @@ namespace InventoryProjectDLyn
             checkRadioBtn();
         }
 
-        //private void checkOnRBSwitch()
-        //{
-        //    int number;
-        //    if (InHouseRadioBtn.Checked)
-        //    {
-        //        bool success = Int32.TryParse(MachineCoNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text));
-        //        //MessageBox.Show("Hits this");
-        //        if (!success)
-        //        {
-        //            MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
-        //            MessageBox.Show("Please enter only a number");
-        //            ModifySaveBtn.Enabled = false;
+        private void checkOnRBSwitch()
+        {
+            //int number;
+            if (InHouseRadioBtn.Checked)
+            {
+                int number;
+                if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (!Int32.TryParse(MachineCoNameTxtBox.Text, out number)))
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+                    //MessageBox.Show("Must be a number.");
+                    ModifySaveBtn.Enabled = false;
 
-        //        }
-        //        else
-        //        {
-        //            MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
-        //            ModifySaveBtn.Enabled = true;
-        //        }
+                }
+                else
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
+                    ModifySaveBtn.Enabled = true;
+                }
+            }
+            else if (OutsourcedRadioBtn.Checked)
+            {
+                int number;
+                if (Int32.TryParse(MachineCoNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text)))
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+                    //MessageBox.Show("Must be a valid name, not a number");
+                    ModifySaveBtn.Enabled = false;
+                }
+                else
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
+                    ModifySaveBtn.Enabled = true;
+                }
 
-
-        //        if (OutsourcedRadioBtn.Checked)
-        //        {
-        //            bool approved = (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (Int32.TryParse(MachineCoNameTxtBox.Text, out number)));
-        //            if (!approved)
-        //            {
-        //                MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
-        //                //MessageBox.Show("Must be a valid company name");
-        //                ModifySaveBtn.Enabled = false;
-        //            }
-        //            else
-        //            {
-        //                MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
-        //                ModifySaveBtn.Enabled = true;
-        //            }
-        //        }
-        //    }
-        //}
+            }
+        }
 
 
-            //constructor, this sets the form with the current part being displayed
-            public ModifyPartForm()
+        //constructor, this sets the form with the current part being displayed
+        public ModifyPartForm()
         {
             InitializeComponent();
             ModifyPartIdTxtBox.Text = Inventory.CurrentPart.PartID.ToString();
@@ -123,21 +121,16 @@ namespace InventoryProjectDLyn
             }
         }
 
-
-
-
-
         private void MachineCoNameTxtBox_TextChanged(object sender, EventArgs e)
         {
             //checkOnRBSwitch();
             if (InHouseRadioBtn.Checked)
             {
                 int number;
-
-                if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (!Int32.TryParse(ModifyInventoryTxtBox.Text, out number)))
+                if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (!Int32.TryParse(MachineCoNameTxtBox.Text, out number)))
                 {
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
-                    MessageBox.Show("Please enter only a number");
+                    MessageBox.Show("Must be a number.");
                     ModifySaveBtn.Enabled = false;
 
                 }
@@ -147,22 +140,22 @@ namespace InventoryProjectDLyn
                     ModifySaveBtn.Enabled = true;
                 }
             }
-            //else if (OutsourcedRadioBtn.Checked)
-            //{
-            //    int number;
-            //    if (!Int32.TryParse(MachineCoNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text)))
-            //    {
-            //        ModifyNameTxtBox.BackColor = System.Drawing.Color.Yellow;
-            //        MessageBox.Show("Must be a valid name, not a number");
-            //        ModifySaveBtn.Enabled = false;
-            //    }
-            //    else
-            //    {
-            //        ModifyNameTxtBox.BackColor = System.Drawing.Color.White;
-            //        ModifySaveBtn.Enabled = true;
-            //    }
-                
-            //}
+            else if (OutsourcedRadioBtn.Checked)
+            {
+                int number;
+                if (Int32.TryParse(MachineCoNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text)))
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
+                    MessageBox.Show("Must be a valid name, not a number");
+                    ModifySaveBtn.Enabled = false;
+                }
+                else
+                {
+                    MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
+                    ModifySaveBtn.Enabled = true;
+                }
+
+            }
         }
 
 
@@ -222,7 +215,7 @@ namespace InventoryProjectDLyn
             //MessageBox.Show("Inhouse");
             MachineIdLabel.Text = "Machine ID";
             isInHouse = true;
-            checkRadioBtn();
+            checkOnRBSwitch();
         }
 
 
@@ -230,7 +223,7 @@ namespace InventoryProjectDLyn
         {
             MachineIdLabel.Text = "Company Name";
             isInHouse = false;
-            checkRadioBtn();
+            checkOnRBSwitch();
 
         }
 
@@ -250,7 +243,7 @@ namespace InventoryProjectDLyn
                 if (Int32.TryParse(ModifyNameTxtBox.Text, out number) || (string.IsNullOrWhiteSpace(ModifyNameTxtBox.Text)))
                 {
                     ModifyNameTxtBox.BackColor = System.Drawing.Color.Yellow;
-                    MessageBox.Show("Must be a valid name, not a number");
+                    //MessageBox.Show("Must be a valid name, not a number");
                     ModifySaveBtn.Enabled = false;
                 }
                 else
@@ -269,7 +262,7 @@ namespace InventoryProjectDLyn
             if (string.IsNullOrWhiteSpace(ModifyInventoryTxtBox.Text) || (!Int32.TryParse(ModifyInventoryTxtBox.Text, out number)))
             {
                 ModifyInventoryTxtBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be a number.");
+                //MessageBox.Show("Must be a number.");
                 ModifySaveBtn.Enabled = false;
 
             }
@@ -288,7 +281,7 @@ namespace InventoryProjectDLyn
             if (string.IsNullOrWhiteSpace(PriceCostTextBox.Text) || (!decimal.TryParse(PriceCostTextBox.Text, out var outParse)))
             {
                 PriceCostTextBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be a decimal.");
+                //MessageBox.Show("Must be a decimal.");
                 ModifySaveBtn.Enabled = false;
             }
             else
@@ -306,7 +299,7 @@ namespace InventoryProjectDLyn
             if (string.IsNullOrWhiteSpace(MaxTxtBox.Text) || (!Int32.TryParse(MaxTxtBox.Text, out number)))
             {
                 MaxTxtBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be a number.");
+                //MessageBox.Show("Must be a number.");
                 ModifySaveBtn.Enabled = false;
             }
             else
@@ -325,7 +318,7 @@ namespace InventoryProjectDLyn
             if (string.IsNullOrWhiteSpace(MinTxtBox.Text) || (!Int32.TryParse(MinTxtBox.Text, out number)))
             {
                 MinTxtBox.BackColor = System.Drawing.Color.Yellow;
-                MessageBox.Show("Must be a number.");
+                //MessageBox.Show("Must be a number.");
                 ModifySaveBtn.Enabled = false;
             }
             else
