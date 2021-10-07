@@ -43,7 +43,6 @@ namespace InventoryProjectDLyn
 
         private void checkOnRBSwitch()
         {
-            //int number;
             if (InHouseRadioBtn.Checked)
             {
                 int number;
@@ -52,7 +51,6 @@ namespace InventoryProjectDLyn
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
                     //MessageBox.Show("Must be a number.");
                     ModifySaveBtn.Enabled = false;
-
                 }
                 else
                 {
@@ -123,7 +121,6 @@ namespace InventoryProjectDLyn
 
         private void MachineCoNameTxtBox_TextChanged(object sender, EventArgs e)
         {
-            //checkOnRBSwitch();
             if (InHouseRadioBtn.Checked)
             {
                 int number;
@@ -132,7 +129,6 @@ namespace InventoryProjectDLyn
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
                     MessageBox.Show("Must be a number.");
                     ModifySaveBtn.Enabled = false;
-
                 }
                 else
                 {
@@ -192,7 +188,6 @@ namespace InventoryProjectDLyn
                 Convert.ToInt32(MachineCoNameTxtBox.Text));
                 Inventory.swap(inHouse);
                 isInHouse = true;
-
             }
             else 
             {
@@ -251,7 +246,6 @@ namespace InventoryProjectDLyn
                     ModifyNameTxtBox.BackColor = System.Drawing.Color.White;
                     ModifySaveBtn.Enabled = true;
                 }
-
             }
         }
 
@@ -264,15 +258,12 @@ namespace InventoryProjectDLyn
                 ModifyInventoryTxtBox.BackColor = System.Drawing.Color.Yellow;
                 //MessageBox.Show("Must be a number.");
                 ModifySaveBtn.Enabled = false;
-
             }
             else
             {
                 ModifyInventoryTxtBox.BackColor = System.Drawing.Color.White;
                 ModifySaveBtn.Enabled = true;
             }
-            
-
         }
 
         private void PriceCostTextBox_TextChanged(object sender, EventArgs e)
@@ -306,10 +297,7 @@ namespace InventoryProjectDLyn
             {
                 MaxTxtBox.BackColor = System.Drawing.Color.White;
                 ModifySaveBtn.Enabled = true;
-
             }
-            
-
         }
 
         private void MinTxtBox_TextChanged(object sender, EventArgs e)

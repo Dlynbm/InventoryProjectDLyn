@@ -253,7 +253,7 @@ namespace InventoryProjectDLyn
             this.panel1.Controls.Add(this.PartMinLbl);
             this.panel1.Controls.Add(this.PartMaxLbl);
             this.panel1.Controls.Add(this.AddPartMaxTxtBx);
-            this.panel1.Location = new System.Drawing.Point(329, 399);
+            this.panel1.Location = new System.Drawing.Point(328, 398);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(612, 234);
             this.panel1.TabIndex = 21;

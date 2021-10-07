@@ -27,10 +27,10 @@ namespace InventoryProjectDLyn
 
         public static BindingList<Part> partStockPile = new BindingList<Part>();
 
-        public Part(int pID, string n, int inS, decimal price, int max, int min)
+        public Part(int pID, string Frank, int inS, decimal price, int max, int min)
         {
             PartID = pID;
-            Name = n;
+            this.Name = Frank;
             InStock = inS;
             Price = price;
             Max = max;
