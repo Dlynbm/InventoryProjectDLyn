@@ -18,22 +18,23 @@ namespace InventoryProjectDLyn
         {
             int number;
             decimal d;
-            return (!string.IsNullOrWhiteSpace(ModifyNameTxtBox.Text))
+            if (string.IsNullOrWhiteSpace(ModifyNameTxtBox.Text))return false;
 
-                && (!string.IsNullOrWhiteSpace(ModifyInventoryTxtBox.Text))
-                && (!Int32.TryParse(ModifyInventoryTxtBox.Text, out number))
+            if (string.IsNullOrWhiteSpace(ModifyInventoryTxtBox.Text))return false;
+            if (!Int32.TryParse(ModifyInventoryTxtBox.Text, out number))return false;
 
-                && (!string.IsNullOrWhiteSpace(PriceCostTextBox.Text))
-                && (!Decimal.TryParse(PriceCostTextBox.Text, out d))
+            if (string.IsNullOrWhiteSpace(PriceCostTextBox.Text))return false;
+            if (!Decimal.TryParse(PriceCostTextBox.Text, out d))return false;
 
-                && (!string.IsNullOrWhiteSpace(MaxTxtBox.Text))
-                && (!Int32.TryParse(MaxTxtBox.Text, out number))
+            if (string.IsNullOrWhiteSpace(MaxTxtBox.Text))return false;
+            if (!Int32.TryParse(MaxTxtBox.Text, out number))return false;
 
-                && (!string.IsNullOrWhiteSpace(MinTxtBox.Text))
-                && (!Int32.TryParse(MinTxtBox.Text, out number))
+            if (string.IsNullOrWhiteSpace(MinTxtBox.Text))return false;
+            if (!Int32.TryParse(MinTxtBox.Text, out number))return false;
 
-            && (!(string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text))
-            && (isInHouse && !Int32.TryParse(MachineCoNameTxtBox.Text, out number)));
+            if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text))return false;
+            if (isInHouse && !Int32.TryParse(MachineCoNameTxtBox.Text, out number)) return false;
+            return true;
         }
 
         private void ModifyPartForm_Load(object sender, EventArgs e)
@@ -49,7 +50,6 @@ namespace InventoryProjectDLyn
                 if (string.IsNullOrWhiteSpace(MachineCoNameTxtBox.Text) || (!Int32.TryParse(MachineCoNameTxtBox.Text, out number)))
                 {
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
-                    //MessageBox.Show("Must be a number.");
                     ModifySaveBtn.Enabled = false;
                 }
                 else
@@ -128,12 +128,10 @@ namespace InventoryProjectDLyn
                 {
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
                     MessageBox.Show("Must be a number.");
-                    ModifySaveBtn.Enabled = false;
                 }
                 else
                 {
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
-                    ModifySaveBtn.Enabled = true;
                 }
             }
             else if (OutsourcedRadioBtn.Checked)
@@ -143,15 +141,13 @@ namespace InventoryProjectDLyn
                 {
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.Yellow;
                     MessageBox.Show("Must be a valid name, not a number");
-                    ModifySaveBtn.Enabled = false;
                 }
                 else
                 {
                     MachineCoNameTxtBox.BackColor = System.Drawing.Color.White;
-                    ModifySaveBtn.Enabled = true;
                 }
-
             }
+            ModifySaveBtn.Enabled = allowSave();
         }
 
 
@@ -210,7 +206,7 @@ namespace InventoryProjectDLyn
             //MessageBox.Show("Inhouse");
             MachineIdLabel.Text = "Machine ID";
             isInHouse = true;
-            checkOnRBSwitch();
+            ModifySaveBtn.Enabled = allowSave();
         }
 
 
@@ -218,8 +214,7 @@ namespace InventoryProjectDLyn
         {
             MachineIdLabel.Text = "Company Name";
             isInHouse = false;
-            checkOnRBSwitch();
-
+            ModifySaveBtn.Enabled = allowSave();
         }
 
 
@@ -239,13 +234,12 @@ namespace InventoryProjectDLyn
                 {
                     ModifyNameTxtBox.BackColor = System.Drawing.Color.Yellow;
                     //MessageBox.Show("Must be a valid name, not a number");
-                    ModifySaveBtn.Enabled = false;
                 }
                 else
                 {
                     ModifyNameTxtBox.BackColor = System.Drawing.Color.White;
-                    ModifySaveBtn.Enabled = true;
                 }
+                ModifySaveBtn.Enabled = allowSave();
             }
         }
 
@@ -257,13 +251,12 @@ namespace InventoryProjectDLyn
             {
                 ModifyInventoryTxtBox.BackColor = System.Drawing.Color.Yellow;
                 //MessageBox.Show("Must be a number.");
-                ModifySaveBtn.Enabled = false;
             }
             else
             {
                 ModifyInventoryTxtBox.BackColor = System.Drawing.Color.White;
-                ModifySaveBtn.Enabled = true;
             }
+            ModifySaveBtn.Enabled = allowSave();
         }
 
         private void PriceCostTextBox_TextChanged(object sender, EventArgs e)
@@ -273,14 +266,12 @@ namespace InventoryProjectDLyn
             {
                 PriceCostTextBox.BackColor = System.Drawing.Color.Yellow;
                 //MessageBox.Show("Must be a decimal.");
-                ModifySaveBtn.Enabled = false;
             }
             else
             {
                 PriceCostTextBox.BackColor = System.Drawing.Color.White;
-                ModifySaveBtn.Enabled = true;
             }
-            
+            ModifySaveBtn.Enabled = allowSave();
 
         }
 
@@ -291,13 +282,12 @@ namespace InventoryProjectDLyn
             {
                 MaxTxtBox.BackColor = System.Drawing.Color.Yellow;
                 //MessageBox.Show("Must be a number.");
-                ModifySaveBtn.Enabled = false;
             }
             else
             {
                 MaxTxtBox.BackColor = System.Drawing.Color.White;
-                ModifySaveBtn.Enabled = true;
             }
+            ModifySaveBtn.Enabled = allowSave();
         }
 
         private void MinTxtBox_TextChanged(object sender, EventArgs e)
@@ -307,14 +297,13 @@ namespace InventoryProjectDLyn
             {
                 MinTxtBox.BackColor = System.Drawing.Color.Yellow;
                 //MessageBox.Show("Must be a number.");
-                ModifySaveBtn.Enabled = false;
             }
             else
             {
                 MinTxtBox.BackColor = System.Drawing.Color.White;
-                ModifySaveBtn.Enabled = true;
             }
-            
+            ModifySaveBtn.Enabled = allowSave();
+
 
         }
 

@@ -14,11 +14,14 @@ namespace InventoryProjectDLyn
     public partial class Form1 : Form
     {
         private int idxSelectedPart;
+        private int idxSelectedProduct;
 
         public Form1()
         {
             InitializeComponent();
             idxSelectedPart = -1;
+            idxSelectedProduct = -1;
+
             //Part Info
             DataGridParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridParts.RowHeadersVisible = false;
@@ -28,12 +31,73 @@ namespace InventoryProjectDLyn
             //sets the data source and sets the PartStockPile list
             DataGridParts.DataSource = Inventory.PartStockPile;
             
+
             //Product Info
+            //sets the data source and sets the ProductStockPile list
             DataGridProducts.DataSource = Inventory.ProductStockPile;
+            //see a full row selection
             DataGridProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //make rows readonly
+            DataGridProducts.ReadOnly = true;
+            //makes it allow only one row to be selected
+            DataGridProducts.MultiSelect = false;
             DataGridProducts.RowHeadersVisible = false;
+            DataGridProducts.AllowUserToAddRows = false;
+        }
 
 
+        private void myBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //clears the top row from not being highlighted
+            DataGridParts.ClearSelection();
+            DataGridProducts.ClearSelection();
+        }
+
+        private void DataGridProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                idxSelectedProduct = DataGridProducts.CurrentCell.RowIndex;
+                Inventory.CurrentProductID = (int)DataGridProducts.Rows[idxSelectedProduct].Cells[0].Value;
+                Inventory.CurrentProduct = Inventory.LookupProduct(Inventory.CurrentProductID);
+
+                DataGridParts.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+
+            }
+        }
+
+            private void AddProductBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ModifyProductBtn_Click(object sender, EventArgs e)
+        {
+            //checks to see if anything was selected
+            if (idxSelectedProduct >= 0)
+            {
+                ModifyProductForm f2 = new ModifyProductForm();
+                f2.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nothing selected");
+            }
+        }
+
+        //Parts Functionality
+        //anytime I select a cell this code executes
+        private void DataGridParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+
+                idxSelectedPart = DataGridParts.CurrentCell.RowIndex;
+                Inventory.CurrentPartID = (int)DataGridParts.Rows[idxSelectedPart].Cells[0].Value;
+                Inventory.CurrentPart = Inventory.lookupPart(Inventory.CurrentPartID);
+                DataGridParts.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            }
         }
 
         //shows the current part on the modify form page
@@ -47,26 +111,6 @@ namespace InventoryProjectDLyn
             else
             {
                 MessageBox.Show("Please make a selection");
-            }
-        }
-
-
-        private void myBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            //clears the top row from not being highlighted
-            DataGridParts.ClearSelection();
-        }
-
-        //anytime I select a cell this code executes
-        private void DataGridParts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-
-                idxSelectedPart = DataGridParts.CurrentCell.RowIndex;
-                Inventory.CurrentPartID = (int)DataGridParts.Rows[idxSelectedPart].Cells[0].Value;
-                Inventory.CurrentPart = Inventory.lookupPart(Inventory.CurrentPartID);
-                DataGridParts.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
             }
         }
 
@@ -123,6 +167,8 @@ namespace InventoryProjectDLyn
                 }
             }
         }
+
+        
     }
 }
 

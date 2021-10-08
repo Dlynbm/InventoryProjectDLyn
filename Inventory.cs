@@ -30,6 +30,29 @@ namespace InventoryProjectDLyn
         public static object TempPartInventory { get; internal set; }
         public static string PartTxt { get; set; }
 
+        //records the current product chosen
+        public static Product CurrentProduct { get; set; }
+        public static int CurrentProductID { get; set; }
+        public static int CurrentProductIndex { get; set; }
+        public static int CurrentProductName { get; set; }
+        public static int CurrentProductMin { get; set; }
+        public static int CurrentProductMax { get; set; }
+        public static object TempProductInventory { get; internal set; }
+        public static string ProductTxt { get; set; }
+
+        //Product Methods
+        public static Product LookupProduct (int currentProductID)
+        {
+            foreach (Product product in ProductStockPile)
+            {
+                if(product.ProductID == currentProductID)
+                {
+                    return product;
+                }
+            }
+            Product emptyProduct = null;
+            return emptyProduct;
+        }
 
         // Part Methods
         public static void addPart(Part part)

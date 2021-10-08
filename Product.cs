@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace InventoryProjectDLyn
 {
-    class Product
+    public class Product
     {
-        public int PartID { get; set; }
+        public int ProductID { get; set; }
 
         public string Name { get; set; }
 
@@ -22,5 +22,28 @@ namespace InventoryProjectDLyn
         public int Max { get; set; }
 
         public static BindingList<Product> productStockPile = new BindingList<Product>();
+
+
+        public Product(int pID, string n, int inS, decimal price, int max, int min)
+        {
+            ProductID = pID;
+            Name = n;
+            InStock = inS;
+            Price = price;
+            Max = max;
+            Min = min;
+
+
+        }
+
+        public Product(string n, int inS, decimal price, int max, int min)
+        {
+            //ProductID = pID;
+            Name = n;
+            InStock = inS;
+            Price = price;
+            Max = max;
+            Min = min;
+        }
     }
 }
