@@ -67,10 +67,14 @@ namespace InventoryProjectDLyn
             }
         }
 
-            private void AddProductBtn_Click(object sender, EventArgs e)
+        private void AddProductBtn_Click(object sender, EventArgs e)
         {
 
         }
+
+
+
+
 
         private void ModifyProductBtn_Click(object sender, EventArgs e)
         {
@@ -168,7 +172,7 @@ namespace InventoryProjectDLyn
             }
         }
 
-        
+       
     }
 }
 

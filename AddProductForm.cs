@@ -10,17 +10,12 @@ using System.Windows.Forms;
 
 namespace InventoryProjectDLyn
 {
-    public partial class ModifyProductForm : Form
+    internal class AddProductForm
     {
-        public ModifyProductForm()
+        public AddProductForm()
         {
-            InitializeComponent();
         }
 
-        private void ModifyProductCancelBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-
-        }
+        
     }
 }

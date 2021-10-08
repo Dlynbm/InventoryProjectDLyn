@@ -42,9 +42,9 @@ namespace InventoryProjectDLyn
             this.ProductSearchBtn = new System.Windows.Forms.Button();
             this.PartSearchTxtBox = new System.Windows.Forms.TextBox();
             this.ProductSearchTxtBx = new System.Windows.Forms.TextBox();
-            this.AddProductBtn = new System.Windows.Forms.Button();
             this.ModifyProductBtn = new System.Windows.Forms.Button();
             this.DeleteProductBtn = new System.Windows.Forms.Button();
+            this.AddProductBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridProducts)).BeginInit();
             this.SuspendLayout();
@@ -187,16 +187,6 @@ namespace InventoryProjectDLyn
             this.ProductSearchTxtBx.Size = new System.Drawing.Size(258, 38);
             this.ProductSearchTxtBx.TabIndex = 13;
             // 
-            // AddProductBtn
-            // 
-            this.AddProductBtn.Location = new System.Drawing.Point(1529, 818);
-            this.AddProductBtn.Name = "AddProductBtn";
-            this.AddProductBtn.Size = new System.Drawing.Size(251, 95);
-            this.AddProductBtn.TabIndex = 14;
-            this.AddProductBtn.Text = "Add Product";
-            this.AddProductBtn.UseVisualStyleBackColor = true;
-            this.AddProductBtn.Click += new System.EventHandler(this.AddProductBtn_Click);
-            // 
             // ModifyProductBtn
             // 
             this.ModifyProductBtn.Location = new System.Drawing.Point(1849, 821);
@@ -216,14 +206,24 @@ namespace InventoryProjectDLyn
             this.DeleteProductBtn.Text = "Delete Product";
             this.DeleteProductBtn.UseVisualStyleBackColor = true;
             // 
+            // AddProductBtn
+            // 
+            this.AddProductBtn.Location = new System.Drawing.Point(1531, 822);
+            this.AddProductBtn.Name = "AddProductBtn";
+            this.AddProductBtn.Size = new System.Drawing.Size(239, 95);
+            this.AddProductBtn.TabIndex = 17;
+            this.AddProductBtn.Text = "Add Product";
+            this.AddProductBtn.UseVisualStyleBackColor = true;
+            this.AddProductBtn.Click += new System.EventHandler(this.AddProductBtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2512, 1139);
+            this.Controls.Add(this.AddProductBtn);
             this.Controls.Add(this.DeleteProductBtn);
             this.Controls.Add(this.ModifyProductBtn);
-            this.Controls.Add(this.AddProductBtn);
             this.Controls.Add(this.ProductSearchTxtBx);
             this.Controls.Add(this.PartSearchTxtBox);
             this.Controls.Add(this.ProductSearchBtn);
@@ -262,9 +262,9 @@ namespace InventoryProjectDLyn
         private System.Windows.Forms.Button ProductSearchBtn;
         private System.Windows.Forms.TextBox PartSearchTxtBox;
         private System.Windows.Forms.TextBox ProductSearchTxtBx;
-        private System.Windows.Forms.Button AddProductBtn;
         private System.Windows.Forms.Button ModifyProductBtn;
         private System.Windows.Forms.Button DeleteProductBtn;
+        private System.Windows.Forms.Button AddProductBtn;
     }
 }
 
