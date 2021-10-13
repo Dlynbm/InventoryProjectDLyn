@@ -85,7 +85,6 @@ namespace InventoryProjectDLyn
             InitializeComponent();
             PartSaveBtn.Enabled = false;
             AddPartIdTxtBx.Text = Inventory.PartStockPile.Count.ToString();
-            //PartSaveBtn.Enabled = allowSave();
         }
 
         public static object CurrentRow { get; private set; }

@@ -11,4 +11,4 @@ C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn
 C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.AddPartForm.resources
 C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.ModifyPartForm.resources
 C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.ModifyProductForm.resources
-C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.AddProduct.resources
+C:\Users\dmayne\source\repos\InventoryProjectDLyn\obj\Debug\InventoryProjectDLyn.AddProductForm.resources

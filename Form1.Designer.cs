@@ -170,6 +170,7 @@ namespace InventoryProjectDLyn
             this.ProductSearchBtn.TabIndex = 11;
             this.ProductSearchBtn.Text = "Search";
             this.ProductSearchBtn.UseVisualStyleBackColor = true;
+            this.ProductSearchBtn.Click += new System.EventHandler(this.ProductSearchBtn_Click);
             // 
             // PartSearchTxtBox
             // 
@@ -205,6 +206,7 @@ namespace InventoryProjectDLyn
             this.DeleteProductBtn.TabIndex = 16;
             this.DeleteProductBtn.Text = "Delete Product";
             this.DeleteProductBtn.UseVisualStyleBackColor = true;
+            this.DeleteProductBtn.Click += new System.EventHandler(this.DeleteProductBtn_Click);
             // 
             // AddProductBtn
             // 

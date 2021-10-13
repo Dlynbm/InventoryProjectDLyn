@@ -28,6 +28,8 @@ namespace InventoryProjectDLyn
             Inventory.ProductStockPile.Add(new Product( "Red Car", 10, 9.99m, 100, 10));
             Inventory.ProductStockPile.Add(new Product( "Black Car", 104, 5.99m, 150, 100));
 
+            
+
 
             Application.Run(new Form1());
         }

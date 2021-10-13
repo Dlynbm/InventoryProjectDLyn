@@ -22,10 +22,10 @@ namespace InventoryProjectDLyn
 
         public int Max { get; set; }
 
-
         public static int partCount;
 
         public static BindingList<Part> partStockPile = new BindingList<Part>();
+        internal object associatedParts;
 
         public Part(int pID, string Frank, int inS, decimal price, int max, int min)
         {
@@ -48,10 +48,10 @@ namespace InventoryProjectDLyn
             Min = min;
         }
 
-        
-
-       
-
+        internal void Add(Part selectedPart)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

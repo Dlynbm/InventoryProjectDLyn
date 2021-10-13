@@ -30,7 +30,7 @@ namespace InventoryProjectDLyn
             DataGridParts.AllowUserToAddRows = true;
             //sets the data source and sets the PartStockPile list
             DataGridParts.DataSource = Inventory.PartStockPile;
-            
+
 
             //Product Info
             //sets the data source and sets the ProductStockPile list
@@ -69,7 +69,8 @@ namespace InventoryProjectDLyn
 
         private void AddProductBtn_Click(object sender, EventArgs e)
         {
-
+            AddProductForm f2 = new AddProductForm();
+            f2.Show();
         }
 
 
@@ -152,6 +153,33 @@ namespace InventoryProjectDLyn
                 MessageBox.Show("Not found");
             }
         }
+
+        private void ProductSearchBtn_Click(object sender, EventArgs e)
+        {
+            {
+                DataGridProducts.ClearSelection();
+                bool found = false;
+                if (ProductSearchTxtBx.Text != "")
+                {
+                    for (int i = 0; i < Inventory.ProductStockPile.Count; i++)
+                    {
+                        if (Inventory.ProductStockPile[i].Name.ToUpper().Contains(ProductSearchTxtBx.Text.ToUpper()))
+
+                        {
+                            DataGridProducts.Rows[i].Selected = true;
+                            found = true;
+                        }
+                    }
+                }
+                if (!found)
+                {
+                    MessageBox.Show("Not found");
+                }
+            }
+
+        }
+
+
         private void DeleteBtn_Click_1(object sender, EventArgs e)
         {
             {
@@ -172,7 +200,24 @@ namespace InventoryProjectDLyn
             }
         }
 
-       
+        private void DeleteProductBtn_Click(object sender, EventArgs e)
+        {
+            if (DataGridProducts.CurrentRow == null || !DataGridProducts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected. Please make a selection");
+                return;
+            }
+            Product P = DataGridProducts.CurrentRow.DataBoundItem as Product;
+            var chosenProduct = DataGridProducts.CurrentCell.Value;
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this product? " + chosenProduct, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                Inventory.ProductStockPile.Remove(P);
+            }
+        }
+
+        
     }
 }
 

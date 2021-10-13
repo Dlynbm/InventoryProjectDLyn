@@ -20,6 +20,7 @@ namespace InventoryProjectDLyn
 
 
 
+
         //records the current part chosen
         public static Part CurrentPart { get; set; }
         public static int CurrentPartID { get; set; }
@@ -39,6 +40,10 @@ namespace InventoryProjectDLyn
         public static int CurrentProductMax { get; set; }
         public static object TempProductInventory { get; internal set; }
         public static string ProductTxt { get; set; }
+
+        //records the current upperindex and lowerindex
+        public static int CurrentIndexUpper { get; set; }
+        public static int CurrentIndexLower { get; set; }
 
         //Product Methods
         public static Product LookupProduct (int currentProductID)
@@ -81,5 +86,7 @@ namespace InventoryProjectDLyn
             PartStockPile.RemoveAt(CurrentPartID);
             PartStockPile.Add(part);
         }
+
+       
     }
 }
