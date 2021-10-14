@@ -46,7 +46,7 @@ namespace InventoryProjectDLyn
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProductSearchTxtBox = new System.Windows.Forms.TextBox();
             this.AddProductSearchBtn = new System.Windows.Forms.Button();
             this.AddProductAddBtn = new System.Windows.Forms.Button();
             this.AddProductSaveBtn = new System.Windows.Forms.Button();
@@ -61,7 +61,7 @@ namespace InventoryProjectDLyn
             this.AddProductLbl.AutoSize = true;
             this.AddProductLbl.Location = new System.Drawing.Point(41, 47);
             this.AddProductLbl.Name = "AddProductLbl";
-            this.AddProductLbl.Size = new System.Drawing.Size(163, 31);
+            this.AddProductLbl.Size = new System.Drawing.Size(171, 32);
             this.AddProductLbl.TabIndex = 0;
             this.AddProductLbl.Text = "Add Product";
             // 
@@ -70,7 +70,7 @@ namespace InventoryProjectDLyn
             this.AddProductIdLabel.AutoSize = true;
             this.AddProductIdLabel.Location = new System.Drawing.Point(149, 449);
             this.AddProductIdLabel.Name = "AddProductIdLabel";
-            this.AddProductIdLabel.Size = new System.Drawing.Size(42, 31);
+            this.AddProductIdLabel.Size = new System.Drawing.Size(42, 32);
             this.AddProductIdLabel.TabIndex = 1;
             this.AddProductIdLabel.Text = "ID";
             // 
@@ -79,7 +79,7 @@ namespace InventoryProjectDLyn
             this.AddProductNameLabel.AutoSize = true;
             this.AddProductNameLabel.Location = new System.Drawing.Point(149, 531);
             this.AddProductNameLabel.Name = "AddProductNameLabel";
-            this.AddProductNameLabel.Size = new System.Drawing.Size(86, 31);
+            this.AddProductNameLabel.Size = new System.Drawing.Size(90, 32);
             this.AddProductNameLabel.TabIndex = 5;
             this.AddProductNameLabel.Text = "Name";
             // 
@@ -88,7 +88,7 @@ namespace InventoryProjectDLyn
             this.AddProductInventoryLabel.AutoSize = true;
             this.AddProductInventoryLabel.Location = new System.Drawing.Point(149, 620);
             this.AddProductInventoryLabel.Name = "AddProductInventoryLabel";
-            this.AddProductInventoryLabel.Size = new System.Drawing.Size(127, 31);
+            this.AddProductInventoryLabel.Size = new System.Drawing.Size(131, 32);
             this.AddProductInventoryLabel.TabIndex = 6;
             this.AddProductInventoryLabel.Text = "Inventory";
             // 
@@ -97,7 +97,7 @@ namespace InventoryProjectDLyn
             this.AddProductPriceLabel.AutoSize = true;
             this.AddProductPriceLabel.Location = new System.Drawing.Point(149, 713);
             this.AddProductPriceLabel.Name = "AddProductPriceLabel";
-            this.AddProductPriceLabel.Size = new System.Drawing.Size(76, 31);
+            this.AddProductPriceLabel.Size = new System.Drawing.Size(80, 32);
             this.AddProductPriceLabel.TabIndex = 7;
             this.AddProductPriceLabel.Text = "Price";
             // 
@@ -106,7 +106,7 @@ namespace InventoryProjectDLyn
             this.AddProductMaxLabel.AutoSize = true;
             this.AddProductMaxLabel.Location = new System.Drawing.Point(149, 805);
             this.AddProductMaxLabel.Name = "AddProductMaxLabel";
-            this.AddProductMaxLabel.Size = new System.Drawing.Size(64, 31);
+            this.AddProductMaxLabel.Size = new System.Drawing.Size(68, 32);
             this.AddProductMaxLabel.TabIndex = 8;
             this.AddProductMaxLabel.Text = "Max";
             // 
@@ -155,7 +155,7 @@ namespace InventoryProjectDLyn
             this.AddProductMinLabel.AutoSize = true;
             this.AddProductMinLabel.Location = new System.Drawing.Point(503, 808);
             this.AddProductMinLabel.Name = "AddProductMinLabel";
-            this.AddProductMinLabel.Size = new System.Drawing.Size(57, 31);
+            this.AddProductMinLabel.Size = new System.Drawing.Size(61, 32);
             this.AddProductMinLabel.TabIndex = 14;
             this.AddProductMinLabel.Text = "Min";
             // 
@@ -192,7 +192,7 @@ namespace InventoryProjectDLyn
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(1176, 90);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 31);
+            this.label1.Size = new System.Drawing.Size(121, 32);
             this.label1.TabIndex = 18;
             this.label1.Text = "All Parts";
             // 
@@ -201,16 +201,16 @@ namespace InventoryProjectDLyn
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(1176, 681);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(426, 31);
+            this.label2.Size = new System.Drawing.Size(443, 32);
             this.label2.TabIndex = 19;
             this.label2.Text = "Parts Associated with this Product";
             // 
-            // textBox1
+            // ProductSearchTxtBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(1955, 113);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(304, 38);
-            this.textBox1.TabIndex = 20;
+            this.ProductSearchTxtBox.Location = new System.Drawing.Point(1955, 113);
+            this.ProductSearchTxtBox.Name = "ProductSearchTxtBox";
+            this.ProductSearchTxtBox.Size = new System.Drawing.Size(304, 38);
+            this.ProductSearchTxtBox.TabIndex = 20;
             // 
             // AddProductSearchBtn
             // 
@@ -220,6 +220,7 @@ namespace InventoryProjectDLyn
             this.AddProductSearchBtn.TabIndex = 21;
             this.AddProductSearchBtn.Text = "Search";
             this.AddProductSearchBtn.UseVisualStyleBackColor = true;
+            this.AddProductSearchBtn.Click += new System.EventHandler(this.AddProductSearchBtn_Click);
             // 
             // AddProductAddBtn
             // 
@@ -229,6 +230,7 @@ namespace InventoryProjectDLyn
             this.AddProductAddBtn.TabIndex = 22;
             this.AddProductAddBtn.Text = "Add";
             this.AddProductAddBtn.UseVisualStyleBackColor = true;
+            this.AddProductAddBtn.Click += new System.EventHandler(this.AddProductAddBtn_Click);
             // 
             // AddProductSaveBtn
             // 
@@ -248,6 +250,7 @@ namespace InventoryProjectDLyn
             this.AddProductDeleteBtn.TabIndex = 25;
             this.AddProductDeleteBtn.Text = "Delete";
             this.AddProductDeleteBtn.UseVisualStyleBackColor = true;
+            this.AddProductDeleteBtn.Click += new System.EventHandler(this.AddProductDeleteBtn_Click);
             // 
             // AddProductCancelBtn
             // 
@@ -263,13 +266,13 @@ namespace InventoryProjectDLyn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.ClientSize = new System.Drawing.Size(2868, 1409);
             this.Controls.Add(this.AddProductCancelBtn);
             this.Controls.Add(this.AddProductDeleteBtn);
             this.Controls.Add(this.AddProductSaveBtn);
             this.Controls.Add(this.AddProductAddBtn);
             this.Controls.Add(this.AddProductSearchBtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ProductSearchTxtBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView2);
@@ -315,11 +318,10 @@ namespace InventoryProjectDLyn
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ProductSearchTxtBox;
         private System.Windows.Forms.Button AddProductSearchBtn;
         private System.Windows.Forms.Button AddProductAddBtn;
         private System.Windows.Forms.Button AddProductSaveBtn;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button AddProductDeleteBtn;
         private System.Windows.Forms.Button AddProductCancelBtn;
     }

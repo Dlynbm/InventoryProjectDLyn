@@ -12,7 +12,47 @@ namespace InventoryProjectDLyn
 {
     public partial class ModifyProductForm : Form
     {
-        private BindingList<Part> associatedParts = new BindingList<Part>();
+        private BindingList<Part> bottomList = new BindingList<Part>();
+
+        public ModifyProductForm()
+        {
+            InitializeComponent();
+            ModifyProductSaveBtn.Enabled = allowSave();
+
+            ModifyProductIdTxtBx.Text = Inventory.CurrentProduct.ProductID.ToString();
+            ModifyProductNameTxtBox.Text = Inventory.CurrentProduct.Name;
+            ModifyProductInventoryTxtBox.Text = Inventory.CurrentProduct.InStock.ToString();
+            ModifyProductPriceTxtBox.Text = Inventory.CurrentProduct.Price.ToString();
+            ModifyProductMaxTextBox.Text = Inventory.CurrentProduct.Max.ToString();
+            ModifyProductMinTxtBox.Text = Inventory.CurrentProduct.Min.ToString();
+
+           
+
+            
+            dataGridView1.DataSource = Inventory.PartStockPile;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
+
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.DataSource = bottomList;
+
+            foreach (Part p in Inventory.CurrentProduct.associatedPart)
+            {
+                bottomList.Add(p);
+            }
+            dataGridView2.RowHeadersVisible = false;
+            dataGridView2.ReadOnly = true;
+   
+        }
+
+        private void myBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
+        }
+
 
         private bool allowSave()
         {
@@ -34,35 +74,7 @@ namespace InventoryProjectDLyn
 
             return true;
         }
-        public ModifyProductForm()
-        {
-            InitializeComponent();
-            ModifyProductIdTxtBx.Text = Inventory.CurrentProduct.ProductID.ToString();
-            ModifyProductNameTxtBox.Text = Inventory.CurrentProduct.Name;
-            ModifyProductInventoryTxtBox.Text = Inventory.CurrentProduct.InStock.ToString();
-            ModifyProductPriceTxtBox.Text = Inventory.CurrentProduct.Price.ToString();
-            ModifyProductMaxTextBox.Text = Inventory.CurrentProduct.Max.ToString();
-            ModifyProductMinTxtBox.Text = Inventory.CurrentProduct.Min.ToString();
-
-            dataGridView1.DataSource = Inventory.PartStockPile;
-
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.BackColor;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = dataGridView1.DefaultCellStyle.ForeColor;
-            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView2.DefaultCellStyle.SelectionBackColor = dataGridView2.DefaultCellStyle.BackColor;
-            dataGridView2.DefaultCellStyle.SelectionForeColor = dataGridView2.DefaultCellStyle.ForeColor;
-
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView2.RowHeadersVisible = false;
-
-            //make grid readonly
-            dataGridView1.ReadOnly = true;
-            dataGridView2.ReadOnly = true;
-
-
-        }
-
+      
         private void ModifyProductCancelBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -75,7 +87,6 @@ namespace InventoryProjectDLyn
             {
                 Inventory.CurrentIndexUpper = e.RowIndex;
                 dataGridView1.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.AliceBlue;
-                dataGridView2.DataSource = associatedParts;
             }
         }
 
@@ -154,67 +165,84 @@ namespace InventoryProjectDLyn
         {
             {
                 Part associatedParts = (Part)dataGridView1.CurrentRow.DataBoundItem;
-
-
-                //get selected row(row that was highlighted when add was clicked)
-
-                //lookup the part
-
-                //call the add part method to add it to associated list
-
                 if (dataGridView1.SelectedRows.Count > 0)
-
                 {
-
-                    int partId = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
-                    Part selectedPart = Inventory.lookupPart(partId);
-                    associatedParts.Add(selectedPart);
+                    bottomList.Add(associatedParts);
                 }
                 else
                 {
                     MessageBox.Show("Please select a part to add");
                 }
-
-                dataGridView2.Rows[0].Selected = false;
             }
-
-            //private void ModifyProductSaveBtn_Click(object sender, EventArgs e)
-            //{
-            //    if (Convert.ToInt32(ModifyProductMaxTextBox.Text) < Convert.ToInt32(ModifyProductMinTxtBox.Text))
-            //    {
-            //        MessageBox.Show("Minimum cannot be more than maximum.");
-            //        return;
-            //    }
-
-            //    if (Convert.ToInt32(ModifyProductInventoryTxtBox.Text) < Convert.ToInt32(ModifyProductMinTxtBox.Text) || Convert.ToInt32(ModifyProductInventoryTxtBox.Text) > Convert.ToInt32(ModifyProductMinTxtBox.Text))
-            //    {
-            //        MessageBox.Show("Inventory cannot be less than min or greater than the maximum");
-            //        return;
-            //    }
-
-            //    Inventory.ProductStockPile = new Product(Convert.ToInt32(ModifyProductIdTxtBx.Text),
-            //     ModifyProductNameTxtBox.Text,
-            //     Convert.ToInt32(ModifyProductInventoryTxtBox.Text),
-            //     Convert.ToDecimal(ModifyProductPriceTxtBox.Text),
-            //     Convert.ToInt32(ModifyProductMaxTextBox.Text),
-            //     Convert.ToInt32(ModifyProductMinTxtBox.Text)
-
-
-
-            //    }
-            //    this.Hide();
-            //    ModifyProductForm f1 = new ModifyProductForm();
-            //    f1.Show();
-            //}
-
-
-
-
-
-            //Inventory.ProductStockPile = new Product((Inventory.ProductStockPile.Count + 1),
-
         }
 
+        private void ModifyProductSaveBtn_Click(object sender, EventArgs e)
+        {
+            if (Convert.ToInt32(ModifyProductMaxTextBox.Text) < Convert.ToInt32(ModifyProductMinTxtBox.Text))
+            {
+                MessageBox.Show("Minimum cannot be more than maximum."); 
+            }
+
+            if (Convert.ToInt32(ModifyProductInventoryTxtBox.Text) < Convert.ToInt32(ModifyProductMinTxtBox.Text) || Convert.ToInt32(ModifyProductInventoryTxtBox.Text) > Convert.ToInt32(ModifyProductMaxTextBox.Text))
+            {
+                MessageBox.Show("Inventory cannot be less than min or greater than the maximum");
+                return;
+            }
+
+             Product product = new Product(Convert.ToInt32(ModifyProductIdTxtBx.Text), ModifyProductNameTxtBox.Text,
+             Convert.ToInt32(ModifyProductInventoryTxtBox.Text),
+             Convert.ToDecimal(ModifyProductPriceTxtBox.Text),
+             Convert.ToInt32(ModifyProductMaxTextBox.Text),
+             Convert.ToInt32(ModifyProductMinTxtBox.Text));
+            //not adding parts to a product
+            foreach (Part p in bottomList)
+            {
+                product.associatedPart.Add(p);
+            }
+            Inventory.update(product);
+
+            ModifyProductSaveBtn.Enabled = allowSave();
+            this.Hide();
+            Form1 f1 = new Form1();
+             f1.Show();
+        }
+  
+
+        private void ModifyProductSearchBtn_Click(object sender, EventArgs e)
+        {
+            {
+                dataGridView1.ClearSelection();
+                bool found = false;
+                if(ModifyProductSearchTxtBox.Text !="")
+                {
+                    for (int i = 0; i < Inventory.PartStockPile.Count; i++)
+                    {
+                        if(Inventory.PartStockPile[i].Name.ToUpper().Contains(ModifyProductSearchTxtBox.Text.ToUpper()))
+                        {
+                            dataGridView1.Rows[i].Selected = true;
+                            found = true;
+                        }
+                    }
+                }
+                if(!found)
+                {
+                    MessageBox.Show("Nothing found");
+                }
+            }
+        }
+
+        private void ModifyProductDeleteBtn_Click(object sender, EventArgs e)
+        {
+            if(dataGridView2.CurrentRow == null || !dataGridView2.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected.  Please make a selection");
+                return;
+            }
+            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+            {
+                bottomList.RemoveAt(row.Index);
+            }
+        }
     }
 }
 

@@ -46,11 +46,11 @@ namespace InventoryProjectDLyn
         public static int CurrentIndexLower { get; set; }
 
         //Product Methods
-        public static Product LookupProduct (int currentProductID)
+        public static Product LookupProduct(int currentProductID)
         {
             foreach (Product product in ProductStockPile)
             {
-                if(product.ProductID == currentProductID)
+                if (product.ProductID == currentProductID)
                 {
                     return product;
                 }
@@ -61,22 +61,27 @@ namespace InventoryProjectDLyn
 
         // Part Methods
         public static void addPart(Part part)
-            {
+        {
             PartStockPile.Add(part);
-            }
+        }
+
+        public static void addProduct(Product product)
+        {
+            ProductStockPile.Add(product);
+        }
 
         //given an index it looks up a part with that ID
         public static Part lookupPart(int currentPartID)
         {
             foreach (Part part in PartStockPile)
             {
-                if(part.PartID == currentPartID)
+                if (part.PartID == currentPartID)
                 {
                     return part;
                 }
             }
             Part emptyPart = null;
-            return emptyPart; 
+            return emptyPart;
         }
 
 
@@ -85,8 +90,29 @@ namespace InventoryProjectDLyn
             //swap methods take current part and swaps with the new object just created
             PartStockPile.RemoveAt(CurrentPartID);
             PartStockPile.Add(part);
+
+            for (int i = 0; i < PartStockPile.Count; i++)
+            {
+                if(PartStockPile[i].PartID == part.PartID)
+                {
+                    PartStockPile[i] = part;
+                    return;
+                }
+            }
         }
 
-       
+       public static void update(Product product)
+        {
+            for (int i = 0; i < ProductStockPile.Count; i++)
+            {
+                if (ProductStockPile[i].ProductID == product.ProductID)
+                    {
+                    ProductStockPile[i] = product;
+                    return;
+
+                }
+            }
+        }
+                
     }
 }

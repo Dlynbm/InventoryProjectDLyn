@@ -28,11 +28,11 @@ namespace InventoryProjectDLyn
             if (string.IsNullOrWhiteSpace(AddPartPriceTxtBx.Text)) return false;
             if (!Double.TryParse(AddPartPriceTxtBx.Text, out d)) return false;
 
-            if (string.IsNullOrWhiteSpace(AddPartMinTxtBx.Text)) return false;
-            if (!Int32.TryParse(AddPartMinTxtBx.Text, out number)) return false;
-
             if (string.IsNullOrWhiteSpace(AddPartMaxTxtBx.Text)) return false;
             if (!Int32.TryParse(AddPartMaxTxtBx.Text, out number)) return false;
+
+            if (string.IsNullOrWhiteSpace(AddPartMinTxtBx.Text)) return false;
+            if (!Int32.TryParse(AddPartMinTxtBx.Text, out number)) return false;
 
             if (string.IsNullOrWhiteSpace(AddPartMachineCoTxtBx.Text)) return false;
             if (isInHouse && !Int32.TryParse(AddPartMachineCoTxtBx.Text, out number)) return false;
@@ -164,8 +164,8 @@ namespace InventoryProjectDLyn
                 (AddPartNameTxtBx.Text,
                 Convert.ToInt32(SavePartInventoryTxtBx.Text),
                 Convert.ToDecimal(AddPartPriceTxtBx.Text),
-                Convert.ToInt32(AddPartMinTxtBx.Text),
                 Convert.ToInt32(AddPartMaxTxtBx.Text),
+                Convert.ToInt32(AddPartMinTxtBx.Text),
                 Convert.ToInt32(AddPartMachineCoTxtBx.Text)));
                 isInHouse = true;
 
@@ -175,8 +175,8 @@ namespace InventoryProjectDLyn
                 Inventory.PartStockPile.Add(new Outsourced(AddPartNameTxtBx.Text,
                 Convert.ToInt32(SavePartInventoryTxtBx.Text),
                 Convert.ToDecimal(AddPartPriceTxtBx.Text),
-                Convert.ToInt32(AddPartMinTxtBx.Text),
                 Convert.ToInt32(AddPartMaxTxtBx.Text),
+                Convert.ToInt32(AddPartMinTxtBx.Text),
                 AddPartMachineCoTxtBx.Text));
                 isInHouse = false;
             }

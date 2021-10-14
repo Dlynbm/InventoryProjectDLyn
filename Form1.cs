@@ -202,19 +202,29 @@ namespace InventoryProjectDLyn
 
         private void DeleteProductBtn_Click(object sender, EventArgs e)
         {
-            if (DataGridProducts.CurrentRow == null || !DataGridProducts.CurrentRow.Selected)
-            {
-                MessageBox.Show("Nothing is selected. Please make a selection");
-                return;
-            }
-            Product P = DataGridProducts.CurrentRow.DataBoundItem as Product;
-            var chosenProduct = DataGridProducts.CurrentCell.Value;
 
-            DialogResult result = MessageBox.Show("Are you sure you want to delete this product? " + chosenProduct, "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
+            DialogResult productDelete = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
+
+            if(productDelete == DialogResult.Yes)
             {
-                Inventory.ProductStockPile.Remove(P);
+                if(Inventory.ProductStockPile.Count > 0)
+                {
+                    foreach (DataGridViewRow row in DataGridProducts.SelectedRows)
+                    {
+                        int productId = int.Parse(DataGridProducts.Rows[DataGridProducts.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                        Product invalidProduct = Inventory.LookupProduct(productId);
+                        if(invalidProduct.associatedPart.Count > 0)
+                        {
+                            DialogResult message = MessageBox.Show("Sorry, you cannot delete this product because it has one or more associated parts");
+                        }
+                        else
+                        {
+                            Inventory.ProductStockPile.Remove(invalidProduct);
+                        }
+                    }
+                }
             }
+            
         }
 
         

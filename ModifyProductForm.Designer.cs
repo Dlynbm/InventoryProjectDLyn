@@ -60,155 +60,148 @@ namespace InventoryProjectDLyn
             // ModifyProductNameLbl
             // 
             this.ModifyProductNameLbl.AutoSize = true;
-            this.ModifyProductNameLbl.Location = new System.Drawing.Point(35, 209);
-            this.ModifyProductNameLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.ModifyProductNameLbl.Location = new System.Drawing.Point(93, 498);
             this.ModifyProductNameLbl.Name = "ModifyProductNameLbl";
-            this.ModifyProductNameLbl.Size = new System.Drawing.Size(35, 13);
+            this.ModifyProductNameLbl.Size = new System.Drawing.Size(90, 32);
             this.ModifyProductNameLbl.TabIndex = 0;
             this.ModifyProductNameLbl.Text = "Name";
             // 
             // ModifyProductInventoryLbl
             // 
             this.ModifyProductInventoryLbl.AutoSize = true;
-            this.ModifyProductInventoryLbl.Location = new System.Drawing.Point(35, 250);
-            this.ModifyProductInventoryLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.ModifyProductInventoryLbl.Location = new System.Drawing.Point(93, 596);
             this.ModifyProductInventoryLbl.Name = "ModifyProductInventoryLbl";
-            this.ModifyProductInventoryLbl.Size = new System.Drawing.Size(51, 13);
+            this.ModifyProductInventoryLbl.Size = new System.Drawing.Size(131, 32);
             this.ModifyProductInventoryLbl.TabIndex = 1;
             this.ModifyProductInventoryLbl.Text = "Inventory";
             // 
             // ModifyProductPriceLbl
             // 
             this.ModifyProductPriceLbl.AutoSize = true;
-            this.ModifyProductPriceLbl.Location = new System.Drawing.Point(35, 292);
-            this.ModifyProductPriceLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.ModifyProductPriceLbl.Location = new System.Drawing.Point(93, 696);
             this.ModifyProductPriceLbl.Name = "ModifyProductPriceLbl";
-            this.ModifyProductPriceLbl.Size = new System.Drawing.Size(31, 13);
+            this.ModifyProductPriceLbl.Size = new System.Drawing.Size(80, 32);
             this.ModifyProductPriceLbl.TabIndex = 2;
             this.ModifyProductPriceLbl.Text = "Price";
             // 
             // ModifyProductMaxLbl
             // 
             this.ModifyProductMaxLbl.AutoSize = true;
-            this.ModifyProductMaxLbl.Location = new System.Drawing.Point(35, 331);
-            this.ModifyProductMaxLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.ModifyProductMaxLbl.Location = new System.Drawing.Point(93, 789);
             this.ModifyProductMaxLbl.Name = "ModifyProductMaxLbl";
-            this.ModifyProductMaxLbl.Size = new System.Drawing.Size(27, 13);
+            this.ModifyProductMaxLbl.Size = new System.Drawing.Size(68, 32);
             this.ModifyProductMaxLbl.TabIndex = 3;
             this.ModifyProductMaxLbl.Text = "Max";
             // 
             // ModifyProductMinLbl
             // 
             this.ModifyProductMinLbl.AutoSize = true;
-            this.ModifyProductMinLbl.Location = new System.Drawing.Point(148, 331);
-            this.ModifyProductMinLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.ModifyProductMinLbl.Location = new System.Drawing.Point(395, 789);
             this.ModifyProductMinLbl.Name = "ModifyProductMinLbl";
-            this.ModifyProductMinLbl.Size = new System.Drawing.Size(24, 13);
+            this.ModifyProductMinLbl.Size = new System.Drawing.Size(61, 32);
             this.ModifyProductMinLbl.TabIndex = 4;
             this.ModifyProductMinLbl.Text = "Min";
             // 
             // ModifyProductPartIDLbl
             // 
             this.ModifyProductPartIDLbl.AutoSize = true;
-            this.ModifyProductPartIDLbl.Location = new System.Drawing.Point(35, 171);
-            this.ModifyProductPartIDLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.ModifyProductPartIDLbl.Location = new System.Drawing.Point(93, 408);
             this.ModifyProductPartIDLbl.Name = "ModifyProductPartIDLbl";
-            this.ModifyProductPartIDLbl.Size = new System.Drawing.Size(18, 13);
+            this.ModifyProductPartIDLbl.Size = new System.Drawing.Size(42, 32);
             this.ModifyProductPartIDLbl.TabIndex = 5;
             this.ModifyProductPartIDLbl.Text = "ID";
             // 
             // ModifyProductIdTxtBx
             // 
-            this.ModifyProductIdTxtBx.Location = new System.Drawing.Point(104, 171);
-            this.ModifyProductIdTxtBx.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductIdTxtBx.Location = new System.Drawing.Point(277, 408);
+            this.ModifyProductIdTxtBx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductIdTxtBx.Name = "ModifyProductIdTxtBx";
             this.ModifyProductIdTxtBx.ReadOnly = true;
-            this.ModifyProductIdTxtBx.Size = new System.Drawing.Size(94, 20);
+            this.ModifyProductIdTxtBx.Size = new System.Drawing.Size(244, 38);
             this.ModifyProductIdTxtBx.TabIndex = 6;
             // 
             // ModifyProductNameTxtBox
             // 
-            this.ModifyProductNameTxtBox.Location = new System.Drawing.Point(104, 209);
-            this.ModifyProductNameTxtBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductNameTxtBox.Location = new System.Drawing.Point(277, 498);
+            this.ModifyProductNameTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductNameTxtBox.Name = "ModifyProductNameTxtBox";
-            this.ModifyProductNameTxtBox.Size = new System.Drawing.Size(94, 20);
+            this.ModifyProductNameTxtBox.Size = new System.Drawing.Size(244, 38);
             this.ModifyProductNameTxtBox.TabIndex = 7;
             this.ModifyProductNameTxtBox.TextChanged += new System.EventHandler(this.ModifyProductNameTxtBox_TextChanged);
             // 
             // ModifyProductInventoryTxtBox
             // 
-            this.ModifyProductInventoryTxtBox.Location = new System.Drawing.Point(104, 250);
-            this.ModifyProductInventoryTxtBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductInventoryTxtBox.Location = new System.Drawing.Point(277, 596);
+            this.ModifyProductInventoryTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductInventoryTxtBox.Name = "ModifyProductInventoryTxtBox";
-            this.ModifyProductInventoryTxtBox.Size = new System.Drawing.Size(94, 20);
+            this.ModifyProductInventoryTxtBox.Size = new System.Drawing.Size(244, 38);
             this.ModifyProductInventoryTxtBox.TabIndex = 8;
             this.ModifyProductInventoryTxtBox.TextChanged += new System.EventHandler(this.ModifyProductInventoryTxtBox_TextChanged);
             // 
             // ModifyProductPriceTxtBox
             // 
-            this.ModifyProductPriceTxtBox.Location = new System.Drawing.Point(104, 289);
-            this.ModifyProductPriceTxtBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductPriceTxtBox.Location = new System.Drawing.Point(277, 689);
+            this.ModifyProductPriceTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductPriceTxtBox.Name = "ModifyProductPriceTxtBox";
-            this.ModifyProductPriceTxtBox.Size = new System.Drawing.Size(94, 20);
+            this.ModifyProductPriceTxtBox.Size = new System.Drawing.Size(244, 38);
             this.ModifyProductPriceTxtBox.TabIndex = 9;
             this.ModifyProductPriceTxtBox.TextChanged += new System.EventHandler(this.ModifyProductPriceTxtBox_TextChanged);
             // 
             // ModifyProductMinTxtBox
             // 
-            this.ModifyProductMinTxtBox.Location = new System.Drawing.Point(181, 330);
-            this.ModifyProductMinTxtBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductMinTxtBox.Location = new System.Drawing.Point(483, 787);
+            this.ModifyProductMinTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductMinTxtBox.Name = "ModifyProductMinTxtBox";
-            this.ModifyProductMinTxtBox.Size = new System.Drawing.Size(61, 20);
+            this.ModifyProductMinTxtBox.Size = new System.Drawing.Size(156, 38);
             this.ModifyProductMinTxtBox.TabIndex = 10;
             this.ModifyProductMinTxtBox.TextChanged += new System.EventHandler(this.ModifyProductMinTxtBox_TextChanged);
             // 
             // ModifyProductMaxTextBox
             // 
-            this.ModifyProductMaxTextBox.Location = new System.Drawing.Point(67, 331);
-            this.ModifyProductMaxTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductMaxTextBox.Location = new System.Drawing.Point(179, 789);
+            this.ModifyProductMaxTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductMaxTextBox.Name = "ModifyProductMaxTextBox";
-            this.ModifyProductMaxTextBox.Size = new System.Drawing.Size(61, 20);
+            this.ModifyProductMaxTextBox.Size = new System.Drawing.Size(156, 38);
             this.ModifyProductMaxTextBox.TabIndex = 11;
             this.ModifyProductMaxTextBox.TextChanged += new System.EventHandler(this.ModifyProductMaxTextBox_TextChanged);
             // 
             // ModifyProductLbl
             // 
             this.ModifyProductLbl.AutoSize = true;
-            this.ModifyProductLbl.Location = new System.Drawing.Point(28, 28);
-            this.ModifyProductLbl.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.ModifyProductLbl.Location = new System.Drawing.Point(75, 67);
             this.ModifyProductLbl.Name = "ModifyProductLbl";
-            this.ModifyProductLbl.Size = new System.Drawing.Size(78, 13);
+            this.ModifyProductLbl.Size = new System.Drawing.Size(204, 32);
             this.ModifyProductLbl.TabIndex = 12;
             this.ModifyProductLbl.Text = "Modify Product";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(368, 56);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.dataGridView1.Location = new System.Drawing.Point(981, 134);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 102;
             this.dataGridView1.RowTemplate.Height = 40;
-            this.dataGridView1.Size = new System.Drawing.Size(388, 135);
+            this.dataGridView1.Size = new System.Drawing.Size(1035, 322);
             this.dataGridView1.TabIndex = 13;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(368, 296);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.dataGridView2.Location = new System.Drawing.Point(981, 706);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 102;
             this.dataGridView2.RowTemplate.Height = 40;
-            this.dataGridView2.Size = new System.Drawing.Size(388, 133);
+            this.dataGridView2.Size = new System.Drawing.Size(1035, 317);
             this.dataGridView2.TabIndex = 14;
             // 
             // ModifyProductAddBtn
             // 
-            this.ModifyProductAddBtn.Location = new System.Drawing.Point(684, 205);
-            this.ModifyProductAddBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductAddBtn.Location = new System.Drawing.Point(1824, 489);
+            this.ModifyProductAddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductAddBtn.Name = "ModifyProductAddBtn";
-            this.ModifyProductAddBtn.Size = new System.Drawing.Size(72, 39);
+            this.ModifyProductAddBtn.Size = new System.Drawing.Size(192, 93);
             this.ModifyProductAddBtn.TabIndex = 15;
             this.ModifyProductAddBtn.Text = "Add";
             this.ModifyProductAddBtn.UseVisualStyleBackColor = true;
@@ -216,30 +209,32 @@ namespace InventoryProjectDLyn
             // 
             // ModifyProductSaveBtn
             // 
-            this.ModifyProductSaveBtn.Location = new System.Drawing.Point(486, 458);
-            this.ModifyProductSaveBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductSaveBtn.Location = new System.Drawing.Point(1296, 1092);
+            this.ModifyProductSaveBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductSaveBtn.Name = "ModifyProductSaveBtn";
-            this.ModifyProductSaveBtn.Size = new System.Drawing.Size(72, 39);
+            this.ModifyProductSaveBtn.Size = new System.Drawing.Size(192, 93);
             this.ModifyProductSaveBtn.TabIndex = 16;
             this.ModifyProductSaveBtn.Text = "Save";
             this.ModifyProductSaveBtn.UseVisualStyleBackColor = true;
+            this.ModifyProductSaveBtn.Click += new System.EventHandler(this.ModifyProductSaveBtn_Click);
             // 
             // ModifyProductDeleteBtn
             // 
-            this.ModifyProductDeleteBtn.Location = new System.Drawing.Point(585, 458);
-            this.ModifyProductDeleteBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductDeleteBtn.Location = new System.Drawing.Point(1560, 1092);
+            this.ModifyProductDeleteBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductDeleteBtn.Name = "ModifyProductDeleteBtn";
-            this.ModifyProductDeleteBtn.Size = new System.Drawing.Size(72, 39);
+            this.ModifyProductDeleteBtn.Size = new System.Drawing.Size(192, 93);
             this.ModifyProductDeleteBtn.TabIndex = 17;
             this.ModifyProductDeleteBtn.Text = "Delete";
             this.ModifyProductDeleteBtn.UseVisualStyleBackColor = true;
+            this.ModifyProductDeleteBtn.Click += new System.EventHandler(this.ModifyProductDeleteBtn_Click);
             // 
             // ModifyProductCancelBtn
             // 
-            this.ModifyProductCancelBtn.Location = new System.Drawing.Point(684, 458);
-            this.ModifyProductCancelBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductCancelBtn.Location = new System.Drawing.Point(1824, 1092);
+            this.ModifyProductCancelBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductCancelBtn.Name = "ModifyProductCancelBtn";
-            this.ModifyProductCancelBtn.Size = new System.Drawing.Size(72, 39);
+            this.ModifyProductCancelBtn.Size = new System.Drawing.Size(192, 93);
             this.ModifyProductCancelBtn.TabIndex = 18;
             this.ModifyProductCancelBtn.Text = "Cancel";
             this.ModifyProductCancelBtn.UseVisualStyleBackColor = true;
@@ -247,57 +242,55 @@ namespace InventoryProjectDLyn
             // 
             // ModifyProductSearchTxtBox
             // 
-            this.ModifyProductSearchTxtBox.Location = new System.Drawing.Point(640, 25);
-            this.ModifyProductSearchTxtBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductSearchTxtBox.Location = new System.Drawing.Point(1707, 60);
+            this.ModifyProductSearchTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductSearchTxtBox.Name = "ModifyProductSearchTxtBox";
-            this.ModifyProductSearchTxtBox.Size = new System.Drawing.Size(119, 20);
+            this.ModifyProductSearchTxtBox.Size = new System.Drawing.Size(311, 38);
             this.ModifyProductSearchTxtBox.TabIndex = 19;
             // 
             // ModifyProductSearchBtn
             // 
-            this.ModifyProductSearchBtn.Location = new System.Drawing.Point(545, 23);
-            this.ModifyProductSearchBtn.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.ModifyProductSearchBtn.Location = new System.Drawing.Point(1453, 55);
+            this.ModifyProductSearchBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ModifyProductSearchBtn.Name = "ModifyProductSearchBtn";
-            this.ModifyProductSearchBtn.Size = new System.Drawing.Size(81, 23);
+            this.ModifyProductSearchBtn.Size = new System.Drawing.Size(216, 55);
             this.ModifyProductSearchBtn.TabIndex = 20;
             this.ModifyProductSearchBtn.Text = "Search";
             this.ModifyProductSearchBtn.UseVisualStyleBackColor = true;
+            this.ModifyProductSearchBtn.Click += new System.EventHandler(this.ModifyProductSearchBtn_Click);
             // 
             // AllPartsLabel
             // 
             this.AllPartsLabel.AutoSize = true;
-            this.AllPartsLabel.Location = new System.Drawing.Point(369, 31);
-            this.AllPartsLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.AllPartsLabel.Location = new System.Drawing.Point(984, 74);
             this.AllPartsLabel.Name = "AllPartsLabel";
-            this.AllPartsLabel.Size = new System.Drawing.Size(45, 13);
+            this.AllPartsLabel.Size = new System.Drawing.Size(121, 32);
             this.AllPartsLabel.TabIndex = 21;
             this.AllPartsLabel.Text = "All Parts";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(369, 272);
-            this.label1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label1.Location = new System.Drawing.Point(984, 649);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(167, 13);
+            this.label1.Size = new System.Drawing.Size(443, 32);
             this.label1.TabIndex = 22;
             this.label1.Text = "Parts Associated with this Product";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(356, 445);
-            this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.label2.Location = new System.Drawing.Point(949, 1061);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.Size = new System.Drawing.Size(149, 32);
             this.label2.TabIndex = 23;
             this.label2.Text = "lblBelongs";
             // 
             // ModifyProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 354);
+            this.ClientSize = new System.Drawing.Size(2437, 1608);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AllPartsLabel);
@@ -322,7 +315,7 @@ namespace InventoryProjectDLyn
             this.Controls.Add(this.ModifyProductPriceLbl);
             this.Controls.Add(this.ModifyProductInventoryLbl);
             this.Controls.Add(this.ModifyProductNameLbl);
-            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ModifyProductForm";
             this.Text = "ModifyProductForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -12,17 +12,43 @@ namespace InventoryProjectDLyn
 {
     public partial class AddProductForm : Form
     {
+        private BindingList<Part> bottomList = new BindingList<Part>();
+
         public AddProductForm()
         {
             InitializeComponent();
-            AddProductSaveBtn.Enabled = false;
+            AddProductSaveBtn.Enabled = allowSave();
+
             AddProductIDTextBx.Text = Inventory.ProductStockPile.Count.ToString();
+
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.DataSource = Inventory.PartStockPile;
+
+            dataGridView2.DataSource = bottomList;
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.RowHeadersVisible = false;
+
+            //make grid readonly
+            dataGridView2.ReadOnly = true;
         }
 
         public static object CurrentRow { get; set; }
         public object DataGridProducts { get; set; }
         public object DataGridParts { get; private set; }
+
+        private void myBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            //clears the top row from not being highlighted
+            dataGridView1.ClearSelection();
+            dataGridView2.ClearSelection();
+        }
+
+        
+
+
 
         private bool allowSave()
         {
@@ -45,6 +71,8 @@ namespace InventoryProjectDLyn
             return true;
         }
 
+        
+
         private void AddProductCancelBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -63,11 +91,25 @@ namespace InventoryProjectDLyn
                 return;
             }
 
-            Inventory.ProductStockPile.Add(new Product(AddProductNameTextBox.Text,
-                Convert.ToInt32(AddProductInventoryTextBox.Text),
-                Convert.ToDecimal(AddProductPriceTextBox.Text),
-                Convert.ToInt32(AddProductMaxTextBox.Text),
-                Convert.ToInt32(AddProductMinTextBox.Text)));
+            if (dataGridView2.Rows.Count == 0)
+            {
+                MessageBox.Show("Must have atleast one associated part");
+                return;
+            }
+            else
+            {
+                Product product = new Product(AddProductNameTextBox.Text,
+                    Convert.ToInt32(AddProductInventoryTextBox.Text),
+                    Convert.ToDecimal(AddProductPriceTextBox.Text),
+                    Convert.ToInt32(AddProductMaxTextBox.Text),
+                    Convert.ToInt32(AddProductMinTextBox.Text));
+                foreach (Part p in bottomList)
+                {
+                    product.associatedPart.Add(p);
+                }
+                Inventory.ProductStockPile.Add(product);
+            }
+
             AddProductSaveBtn.Enabled = allowSave();
 
             this.Hide();
@@ -146,5 +188,46 @@ namespace InventoryProjectDLyn
             }
             AddProductSaveBtn.Enabled = allowSave();
         }
+
+        private void AddProductSearchBtn_Click(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+            bool found = false;
+            if (ProductSearchTxtBox.Text !="")
+            {
+                for (int i = 0; i < Inventory.PartStockPile.Count; i++)
+                {
+                    if(Inventory.PartStockPile[i].Name.ToUpper().Contains(ProductSearchTxtBox.Text.ToUpper()))
+                    {
+                        dataGridView1.Rows[i].Selected = true;
+                        found = true;
+                    }
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("Nothing found");
+            }
+        }
+
+        private void AddProductAddBtn_Click(object sender, EventArgs e)
+        {
+            Part associatedParts = (Part)dataGridView1.CurrentRow.DataBoundItem;
+            bottomList.Add(associatedParts);
+            
+        }
+
+        private void AddProductDeleteBtn_Click(object sender, EventArgs e)
+        {
+            if(dataGridView2.CurrentRow == null || !dataGridView2.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected.  Please make a selection");
+            }
+            foreach(DataGridViewRow row in dataGridView2.SelectedRows)
+            {
+                bottomList.RemoveAt(row.Index);            }
+        }
+
+        
     }
 }
