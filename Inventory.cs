@@ -85,34 +85,47 @@ namespace InventoryProjectDLyn
         }
 
 
-        public static void swap (Part part)
+        public static void swap(Part part)
         {
-            //swap methods take current part and swaps with the new object just created
-            PartStockPile.RemoveAt(CurrentPartID);
-            PartStockPile.Add(part);
-
             for (int i = 0; i < PartStockPile.Count; i++)
             {
-                if(PartStockPile[i].PartID == part.PartID)
                 {
-                    PartStockPile[i] = part;
-                    return;
+                    if (PartStockPile[i].PartID == part.PartID)
+                    {
+                        PartStockPile[i] = part;
+                        return;
+                    }
                 }
             }
+            //swap methods take current part and swaps with the new object just created
+            //PartStockPile.RemoveAt(CurrentPartID);
+            //PartStockPile.Add(part);
+
+            //for (int i = 0; i < PartStockPile.Count; i++)
+            //{
+            //    if (PartStockPile[i].PartID == part.PartID)
+            //    {
+            //        PartStockPile[i] = part;
+            //        return;
+            //    }
+            //}
         }
 
-       public static void update(Product product)
+
+
+        public static void update(Product product)
         {
             for (int i = 0; i < ProductStockPile.Count; i++)
             {
                 if (ProductStockPile[i].ProductID == product.ProductID)
-                    {
+                {
                     ProductStockPile[i] = product;
                     return;
 
                 }
             }
         }
-                
     }
 }
+                
+    

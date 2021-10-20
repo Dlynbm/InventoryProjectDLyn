@@ -176,7 +176,7 @@ namespace InventoryProjectDLyn
                     ModifySaveBtn.Enabled = false;
 
                 }
-                InHouse inHouse = new InHouse((Inventory.PartStockPile.Count + 1), 
+                InHouse inHouse = new InHouse(Convert.ToInt32(ModifyPartIdTxtBox.Text), 
                 ModifyNameTxtBox.Text,
                 Convert.ToInt32(ModifyInventoryTxtBox.Text),
                 Convert.ToDecimal(PriceCostTextBox.Text),
@@ -187,7 +187,7 @@ namespace InventoryProjectDLyn
             }
             else 
             {
-                Outsourced outsourced = new Outsourced((Inventory.PartStockPile.Count + 1), 
+                Outsourced outsourced = new Outsourced(Convert.ToInt32(ModifyPartIdTxtBox.Text), 
                 ModifyNameTxtBox.Text,
                 Convert.ToInt32(ModifyInventoryTxtBox.Text),
                 Convert.ToDecimal(PriceCostTextBox.Text),
@@ -197,8 +197,6 @@ namespace InventoryProjectDLyn
                 isInHouse = false;
             }
             this.Hide();
-            Form1 f1 = new Form1();
-            f1.Show();
         }
 
         private void InHouseRadioBtn_CheckedChanged(object sender, EventArgs e)

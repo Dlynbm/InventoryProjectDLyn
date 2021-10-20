@@ -82,6 +82,7 @@ namespace InventoryProjectDLyn
             //checks to see if anything was selected
             if (idxSelectedProduct >= 0)
             {
+                this.Hide();
                 ModifyProductForm f2 = new ModifyProductForm();
                 f2.Show();
             }
