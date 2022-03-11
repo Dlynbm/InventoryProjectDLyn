@@ -78,6 +78,9 @@ namespace InventoryProjectDLyn
         private void ModifyProductCancelBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
+            Form1 f1 = new Form1();
+
+            f1.Show();
 
         }
 
@@ -233,14 +236,18 @@ namespace InventoryProjectDLyn
 
         private void ModifyProductDeleteBtn_Click(object sender, EventArgs e)
         {
-            if(dataGridView2.CurrentRow == null || !dataGridView2.CurrentRow.Selected)
+            if(bottomList.Count == 0)
             {
-                MessageBox.Show("Nothing is selected.  Please make a selection");
                 return;
             }
-            foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+            DialogResult associatedPartDelete = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo);
+
+            if(associatedPartDelete == DialogResult.Yes)
             {
-                bottomList.RemoveAt(row.Index);
+                foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+                {
+                    bottomList.RemoveAt(row.Index);
+                }
             }
         }
     }

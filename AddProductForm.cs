@@ -46,7 +46,7 @@ namespace InventoryProjectDLyn
             dataGridView2.ClearSelection();
         }
 
-        
+
 
 
 
@@ -71,12 +71,9 @@ namespace InventoryProjectDLyn
             return true;
         }
 
-        
 
-        private void AddProductCancelBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-        }
+
+        
 
         private void AddProductSaveBtn_Click(object sender, EventArgs e)
         {
@@ -113,9 +110,11 @@ namespace InventoryProjectDLyn
             AddProductSaveBtn.Enabled = allowSave();
 
             this.Hide();
-          
+            Form1 f1 = new Form1();
+            f1.Show();
+
         }
-    
+
 
 
         private void AddProductNameTextBox_TextChanged(object sender, EventArgs e)
@@ -135,7 +134,7 @@ namespace InventoryProjectDLyn
         private void AddProductInventoryTextBox_TextChanged(object sender, EventArgs e)
         {
             int number;
-            if(string.IsNullOrWhiteSpace(AddProductInventoryTextBox.Text) || (!Int32.TryParse(AddProductInventoryTextBox.Text, out number)))
+            if (string.IsNullOrWhiteSpace(AddProductInventoryTextBox.Text) || (!Int32.TryParse(AddProductInventoryTextBox.Text, out number)))
             {
                 AddProductInventoryTextBox.BackColor = System.Drawing.Color.Yellow;
             }
@@ -148,8 +147,8 @@ namespace InventoryProjectDLyn
 
         private void AddProductPriceTextBox_TextChanged(object sender, EventArgs e)
         {
-            
-            if(string.IsNullOrWhiteSpace(AddProductPriceTextBox.Text) || (!Decimal.TryParse(AddProductPriceTextBox.Text, out var outParse)))
+
+            if (string.IsNullOrWhiteSpace(AddProductPriceTextBox.Text) || (!Decimal.TryParse(AddProductPriceTextBox.Text, out var outParse)))
             {
                 AddProductPriceTextBox.BackColor = System.Drawing.Color.Yellow;
             }
@@ -163,7 +162,7 @@ namespace InventoryProjectDLyn
         private void AddProductMaxTextBox_TextChanged(object sender, EventArgs e)
         {
             int number;
-            if(string.IsNullOrWhiteSpace(AddProductMaxTextBox.Text)|| (!Int32.TryParse(AddProductMaxTextBox.Text, out number)))
+            if (string.IsNullOrWhiteSpace(AddProductMaxTextBox.Text) || (!Int32.TryParse(AddProductMaxTextBox.Text, out number)))
             {
                 AddProductMaxTextBox.BackColor = System.Drawing.Color.Yellow;
             }
@@ -177,7 +176,7 @@ namespace InventoryProjectDLyn
         private void AddProductMinTextBox_TextChanged(object sender, EventArgs e)
         {
             int number;
-            if(string.IsNullOrWhiteSpace(AddProductMinTextBox.Text) || (!Int32.TryParse(AddProductMinTextBox.Text, out number)))
+            if (string.IsNullOrWhiteSpace(AddProductMinTextBox.Text) || (!Int32.TryParse(AddProductMinTextBox.Text, out number)))
             {
                 AddProductMinTextBox.BackColor = System.Drawing.Color.Yellow;
             }
@@ -192,11 +191,11 @@ namespace InventoryProjectDLyn
         {
             dataGridView1.ClearSelection();
             bool found = false;
-            if (ProductSearchTxtBox.Text !="")
+            if (ProductSearchTxtBox.Text != "")
             {
                 for (int i = 0; i < Inventory.PartStockPile.Count; i++)
                 {
-                    if(Inventory.PartStockPile[i].Name.ToUpper().Contains(ProductSearchTxtBox.Text.ToUpper()))
+                    if (Inventory.PartStockPile[i].Name.ToUpper().Contains(ProductSearchTxtBox.Text.ToUpper()))
                     {
                         dataGridView1.Rows[i].Selected = true;
                         found = true;
@@ -213,20 +212,34 @@ namespace InventoryProjectDLyn
         {
             Part associatedParts = (Part)dataGridView1.CurrentRow.DataBoundItem;
             bottomList.Add(associatedParts);
-            
+
         }
 
         private void AddProductDeleteBtn_Click(object sender, EventArgs e)
         {
-            if(dataGridView2.CurrentRow == null || !dataGridView2.CurrentRow.Selected)
+            if(bottomList.Count == 0)
             {
-                MessageBox.Show("Nothing is selected.  Please make a selection");
+                return;
             }
-            foreach(DataGridViewRow row in dataGridView2.SelectedRows)
+            DialogResult associatedPartDelete = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo);
+
+            if (associatedPartDelete == DialogResult.Yes)
             {
-                bottomList.RemoveAt(row.Index);            }
+                foreach (DataGridViewRow row in dataGridView2.SelectedRows)
+                {
+                    bottomList.RemoveAt(row.Index);
+                }
+            }
         }
+
+        private void AddProductCancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 f1 = new Form1();
+            f1.Show();
+        }
+    }
+        
 
         
     }
-}

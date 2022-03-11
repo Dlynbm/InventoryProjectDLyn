@@ -69,6 +69,7 @@ namespace InventoryProjectDLyn
 
         private void AddProductBtn_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AddProductForm f2 = new AddProductForm();
             f2.Show();
         }
